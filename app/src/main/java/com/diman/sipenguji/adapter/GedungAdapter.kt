@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.diman.sipenguji.R
 import com.diman.sipenguji.model.DataItem
+import kotlinx.android.synthetic.main.item_gedung.view.*
 
 class GedungAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adapter<GedungAdapter.GedungHolder>() {
 
@@ -36,8 +37,8 @@ class GedungAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adapter<
     //class yang melakukan assign(mengisi) komponen yang akan ditampilkan
     //kedalan recyclerView
     class GedungHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
-        var tvNamaGedung: TextView = itemView.findViewById(R.id.tv_nama_gedung)
-        var tvAlamatGedung: TextView = itemView.findViewById(R.id.tv_alamat)
+        var tvNamaGedung = itemView.tv_nama_gedung
+        var tvAlamatGedung = itemView.tv_alamat
 
     }
 

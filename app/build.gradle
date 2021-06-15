@@ -53,6 +53,10 @@ dependencies {
     //logging interceptor untuk debug httpClient request dan response
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
 
+    //stheto untuk debug httpclient di google chrome
+    implementation 'com.facebook.stetho:stetho:1.6.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.6.0'
+
     //recyclerView
     implementation "androidx.recyclerview:recyclerview:1.2.1"
 }

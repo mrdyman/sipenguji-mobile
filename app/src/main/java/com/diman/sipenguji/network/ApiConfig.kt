@@ -1,5 +1,6 @@
 package com.diman.sipenguji.network
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,6 +15,7 @@ class ApiConfig {
 
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
+                .addNetworkInterceptor(StethoInterceptor())
                 .build()
 
             val retrofit = Retrofit.Builder()

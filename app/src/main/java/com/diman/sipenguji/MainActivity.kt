@@ -11,6 +11,7 @@ import com.diman.sipenguji.adapter.GedungAdapter
 import com.diman.sipenguji.model.DataItem
 import com.diman.sipenguji.model.Gedung
 import com.diman.sipenguji.network.ApiConfig
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.facebook.stetho.Stetho
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_gedung.*
@@ -28,13 +29,19 @@ class MainActivity : AppCompatActivity() {
 
         Stetho.initializeWithDefaults(this);
 
-        adapter = GedungAdapter(mutableListOf())
+//        adapter = GedungAdapter(mutableListOf())
 
-        rv_gedung.setHasFixedSize(true)
-        rv_gedung.layoutManager = LinearLayoutManager(this)
-        rv_gedung.adapter = adapter
+//        rv_gedung.setHasFixedSize(true)
+//        rv_gedung.layoutManager = LinearLayoutManager(this)
+//        rv_gedung.adapter = adapter
 
-        getGedung()
+//        getGedung()
+
+        bottomNavigation.show(1, true)
+        bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_home))
+        bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_qrcode))
+        bottomNavigation.add(MeowBottomNavigation.Model(3, R.drawable.ic_message))
+
     }
 
     fun getGedung(){

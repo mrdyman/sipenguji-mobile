@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity() {
 
         Stetho.initializeWithDefaults(this);
 
-//        adapter = GedungAdapter(mutableListOf())
+        adapter = GedungAdapter(mutableListOf())
 
-//        rv_gedung.setHasFixedSize(true)
-//        rv_gedung.layoutManager = LinearLayoutManager(this)
-//        rv_gedung.adapter = adapter
+        rv_gedung.setHasFixedSize(true)
+        rv_gedung.layoutManager = LinearLayoutManager(this)
+        rv_gedung.adapter = adapter
 
-//        getGedung()
+        getGedung()
 
         bottomNavigation.show(1, true)
         bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_home))

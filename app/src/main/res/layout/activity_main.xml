@@ -10,15 +10,21 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_above="@id/bottomNavigation">
-
+        android:orientation="vertical">
     </LinearLayout>
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:mbn_circleColor="#ffffff"
+        app:mbn_backgroundBottomColor="#ffffff"
+        app:mbn_countBackgroundColor="#ff6f00"
+        app:mbn_countTextColor="#ffffff"
+        app:mbn_defaultIconColor="#90a4ae"
+        app:mbn_rippleColor="#2f424242"
+        app:mbn_selectedIconColor="#3c415e"
+        app:mbn_shadowColor="#1f212121"
         android:layout_alignParentBottom="true"/>
 
 

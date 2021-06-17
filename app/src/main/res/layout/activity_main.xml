@@ -7,15 +7,11 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/fl_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_above="@id/bottomNavigation">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_gedung"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_gedung"/>
 
     </LinearLayout>
 

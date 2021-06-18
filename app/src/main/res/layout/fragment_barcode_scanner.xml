@@ -1,47 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fragment.BarcodeScannerFragment">
+    android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/container"
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:id="@+id/ll_container_guide"
+        android:padding="7dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black">
+        android:layout_height="120dp"
+        android:background="@drawable/shape_oval">
+
+        <ImageView
+            android:padding="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/img_scan"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="How to Use?"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:text="Pastikan koneksi internet stabil"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@drawable/ic_check_circle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:text="Arahkan Camera ke Barcode"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@drawable/ic_check_circle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:text="Pilih Get Direction"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@drawable/ic_check_circle" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_container_scanner"
+        android:layout_below="@id/ll_container_guide"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <androidx.camera.view.PreviewView
             android:id="@+id/previewView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_qrcode"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/img_frame_qrcode"
+            android:layout_centerInParent="true"/>
 
-            <TextView
-                android:id="@+id/text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="140dp"
-                android:text="QR Code Reader Android\nusing ML Kit"
-                android:textAlignment="center"
-                android:textColor="#FAFAFA"
-                android:textSize="24sp" />
+    </RelativeLayout>
 
-            <ImageView
-                android:layout_width="300dp"
-                android:layout_height="350dp"
-                android:layout_below="@id/text_view"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="34dp"
-                android:background="@drawable/qrcode_rect" />
+    <LinearLayout
+        android:layout_below="@+id/rl_container_scanner"
+        android:id="@+id/fr_bottom_nav_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        </RelativeLayout>
+    </LinearLayout>
 
-    </FrameLayout>
-
-</LinearLayout>
+</RelativeLayout>

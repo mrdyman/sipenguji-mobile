@@ -5,16 +5,16 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.os.ProxyFileDescriptorCallback
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.diman.sipenguji.R
+import com.diman.sipenguji.RuteTerpendekActivity
 import com.diman.sipenguji.model.Gedung
 import com.diman.sipenguji.network.ApiConfig
-import com.diman.sipenguji.network.ApiService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_barcode_scan_result.*
 import org.jsoup.Jsoup
@@ -22,7 +22,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.concurrent.Executors
-import kotlin.math.log
 
 class BarcodeScanResultFragment : BottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
@@ -69,6 +68,16 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
                 findViewById<TextView>(R.id.tv_value_jadwal).text = jadwalUjian
                 findViewById<TextView>(R.id.tv_value_gedung).text = namaGedung
                 findViewById<TextView>(R.id.tv_value_alamat).text = alamat
+                findViewById<Button>(R.id.btn_get_rute).setOnClickListener {
+                    //get user current location
+                    //show activity jalur terpendek
+                    Intent(Intent.ACTION_VIEW).also {
+                        val i = Intent(activity, RuteTerpendekActivity::class.java)
+                        //siapkan data untuk dikirim ke fragment maps
+                        i.putExtra("source", "titik_awal")
+                        startActivity(i)
+                    }
+                }
             }
         }
 

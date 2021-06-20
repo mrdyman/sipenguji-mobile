@@ -1,19 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bottom_sheet"
+    android:id="@+id/anu"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/shape_oval"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="wrap_content">
 
+    <ImageView
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="-60dp"
+        android:elevation="1dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/man_search"/>
+
+    <RelativeLayout
+        android:layout_marginTop="70dp"
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_oval">
+
+        <ImageView
+            android:id="@+id/iv_swipe"
+            android:layout_marginTop="-30dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_minimize"/>
+
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/tv_yey"
+            android:layout_marginEnd="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yey! \ndatanya dah ketemu nih."
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/iv_swipe"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_marginStart="8dp"
+            android:id="@+id/tv_field_title"
+            android:layout_below="@id/tv_yey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_nama_mahasiswa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_nomor_ujian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nomor Ujian"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_namagedung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gedung"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_alamat_ujian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_jadwal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jadwal"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginStart="5dp"
+            android:id="@+id/ll_dot"
+            android:layout_toEndOf="@+id/tv_field_title"
+            android:layout_below="@id/tv_yey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_dot_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_dot_nomor_ujian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_dot_gedung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_dot_alamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_dot_jadwal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_yey"
+            android:layout_toEndOf="@id/ll_dot"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_value_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Gedung"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_value_nomor_ujian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="456 - 7891 - 0111 - 111 - 21"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_value_gedung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LABORATORIUM TEKNIK INFORMATIKA"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_value_alamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Universitas Tadulako"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_value_jadwal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rabu, 26/06/21 - 07.00 : 09.00"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_get_direction"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/ll_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Direction"
+            style="@style/Widget.MaterialComponents.Button"/>
+
+    </RelativeLayout>
 
     <TextView
+        android:layout_below="@id/bottom_sheet"
         android:id="@+id/text_view_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -21,6 +233,7 @@
         tools:text="Simplified Coding - QR Code Reader" />
 
     <TextView
+        android:layout_below="@id/text_view_title"
         android:id="@+id/text_view_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,6 +246,7 @@
         tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed fermentum odio. Donec laoreet nisi nisl. Praesent at mauris enim. Suspendisse metus quam, congue eu nunc a, lacinia placerat orci" />
 
     <TextView
+        android:layout_below="@id/text_view_desc"
         android:id="@+id/text_view_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,10 +256,11 @@
         tools:text="https://www.youtube.com/SimplifiedCoding?sub_confirmation=1" />
 
     <TextView
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/text_view_link"
         android:id="@+id/text_view_visit_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_marginTop="12dp"
         android:background="#00A5E6"
         android:paddingLeft="12dp"
@@ -55,4 +270,4 @@
         android:text="Visit Link"
         android:textColor="#ffffff" />
 
-</LinearLayout>
+</RelativeLayout>

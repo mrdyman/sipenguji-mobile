@@ -11,7 +11,7 @@ interface ApiService {
 
     // get data gedung by Id
     @GET("api/gedung/{id}")
-    fun getGedung(@Path("id")id: Int): Call<Gedung>
+    fun getGedung(@Query("id")id: Int): Call<Gedung>
 
     // post data using field x-www-form-urlencoded
     @FormUrlEncoded

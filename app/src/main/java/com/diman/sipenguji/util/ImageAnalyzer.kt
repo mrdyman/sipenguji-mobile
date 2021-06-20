@@ -1,14 +1,21 @@
 package com.diman.sipenguji.util
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import androidx.fragment.app.FragmentManager
 import com.diman.sipenguji.fragment.BarcodeScanResultFragment
 import com.diman.sipenguji.fragment.BarcodeScannerFragment
+import com.diman.sipenguji.model.Gedung
+import com.diman.sipenguji.network.ApiConfig
 import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import kotlin.math.log
 
 class ImageAnalyzer(private val fragementManager: FragmentManager): ImageAnalysis.Analyzer {
     private var bottomsheet = BarcodeScanResultFragment()
@@ -45,6 +52,16 @@ class ImageAnalyzer(private val fragementManager: FragmentManager): ImageAnalysi
                     if (!bottomsheet.isAdded){
                         bottomsheet.show(fragementManager, "")
                         bottomsheet.updateURL(url.toString())
+                    }
+                }
+                Barcode.TYPE_TEXT -> {
+                    val kode = barcode.displayValue
+                    Log.i("QRCODE_RESULT", kode)
+                    //show fragment
+                    if (!bottomsheet.isAdded) {
+                        //call sipenguji-api
+                        bottomsheet.show(fragementManager, "")
+                        bottomsheet.displayData(kode.toInt())
                     }
                 }
             }

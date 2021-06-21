@@ -3,6 +3,7 @@ package com.diman.sipenguji
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.diman.sipenguji.fragment.HomeFragment
+import com.diman.sipenguji.fragment.LocationFragment
 import com.diman.sipenguji.fragment.MapsFragment
 
 class RuteTerpendekActivity : AppCompatActivity() {
@@ -12,6 +13,7 @@ class RuteTerpendekActivity : AppCompatActivity() {
 
         val fr = supportFragmentManager.beginTransaction()
         fr.add(R.id.ll_container_maps, MapsFragment())
+        fr.add(R.id.ll_location_container, LocationFragment())
         fr.commit()
     }
 }

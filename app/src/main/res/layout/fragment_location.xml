@@ -26,7 +26,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/source"/>
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/tv_source"
                 android:layout_marginStart="15dp"
                 android:layout_width="match_parent"

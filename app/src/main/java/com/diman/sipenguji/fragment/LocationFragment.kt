@@ -20,8 +20,11 @@ class LocationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            tv_source.text = activity?.intent?.getStringExtra("source")
-            tv_destination.text = activity?.intent?.getStringExtra("destination")
+        val srcLatitude = activity?.intent?.getStringExtra("source_latitude")
+        val srcLongitude = activity?.intent?.getStringExtra("source_longitude")
+        val user_koordinat = "$srcLatitude, $srcLongitude"
+        tv_source.text = user_koordinat
+        tv_destination.text = activity?.intent?.getStringExtra("destination_name")
     }
 
 }

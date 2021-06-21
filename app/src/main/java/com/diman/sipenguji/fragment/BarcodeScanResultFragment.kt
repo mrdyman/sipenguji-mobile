@@ -88,7 +88,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
 
     //display data from API to bottomsheet
     fun displayData(kode: Int){
-        getData(kode){ namaMahasiswa, nomorUjian, jadwalUjian, namaGedung, alamat ->
+        getData(kode){ namaMahasiswa, nomorUjian, jadwalUjian, namaGedung, alamat, latitude, longitude ->
             view?.apply {
                 //initialize fused location client untuk dapatkan lokasi user
                 fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
@@ -104,8 +104,11 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
                     Intent(Intent.ACTION_VIEW).also {
                         val i = Intent(activity, RuteTerpendekActivity::class.java)
                         //siapkan data untuk dikirim ke fragment maps
-                        i.putExtra("source", source_latitude.toString())
-                        i.putExtra("destination", source_longitude.toString())
+                        i.putExtra("source_latitude", source_latitude.toString())
+                        i.putExtra("source_longitude", source_longitude.toString())
+                        i.putExtra("destination_latitude", latitude)
+                        i.putExtra("destination_longitude", longitude)
+                        i.putExtra("destination_name", namaGedung)
                         startActivity(i)
                     }
                 }
@@ -114,7 +117,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
 
     }
 
-    private fun getData(kode: Int, callback: (namaMahasiswa: String, nomorUjian: String, jadwalUjian: String, namaGedung: String, alamat: String) -> Unit ){
+    private fun getData(kode: Int, callback: (namaMahasiswa: String, nomorUjian: String, jadwalUjian: String, namaGedung: String, alamat: String, latitude: String, longitude: String) -> Unit ){
         val executor = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())
         executor.execute{
@@ -130,10 +133,12 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
                         val jadwalUjian = "Rabu, 26/06/21 - 07.00:09.00"
                         val namaGedung = data?.namaGedung.toString()
                         val alamat = data?.alamat.toString()
+                        val latitude = data?.latitude.toString()
+                        val longitude = data?.longitude.toString()
 
                         //kirim data ke function getData()
                         handler.post {
-                            callback(namaMahasiswa, nomorUjian, jadwalUjian, namaGedung, alamat)
+                            callback(namaMahasiswa, nomorUjian, jadwalUjian, namaGedung, alamat, latitude, longitude)
                         }
                     } else {
                         Log.i("Response", response.message().toString())

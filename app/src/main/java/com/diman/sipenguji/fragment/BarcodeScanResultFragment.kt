@@ -68,7 +68,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
 
     //display data from API to bottomsheet
     fun displayData(kode: Int){
-        getData(kode){ namaMahasiswa, nomorUjian, jadwalUjian, namaGedung, alamat, latitude, longitude ->
+        getData(kode){ namaMahasiswa, nomorUjian, jadwalUjian, id, namaGedung, alamat, latitude, longitude ->
             view?.apply {
                 tv_value_nama.text = namaMahasiswa
                 tv_value_nomor_ujian.text = nomorUjian
@@ -84,6 +84,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
                         val lat = (activity as MainActivity).userLatitude
                         val lng = (activity as MainActivity).userLongitude
                         Log.d("Loc", lat.toString())
+                        i.putExtra("id_tujuan", id)
                         i.putExtra("source_latitude", lat.toString())
                         i.putExtra("source_longitude", lng.toString())
                         i.putExtra("destination_latitude", latitude)
@@ -97,7 +98,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
 
     }
 
-    private fun getData(kode: Int, callback: (namaMahasiswa: String, nomorUjian: String, jadwalUjian: String, namaGedung: String, alamat: String, latitude: String, longitude: String) -> Unit ){
+    private fun getData(kode: Int, callback: (namaMahasiswa: String, nomorUjian: String, jadwalUjian: String, id: String, namaGedung: String, alamat: String, latitude: String, longitude: String) -> Unit ){
         val executor = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())
         executor.execute{
@@ -111,6 +112,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
                         val namaMahasiswa = "A. Mardiman Saputra" //will change to data from api
                         val nomorUjian = "3123123123123123"
                         val jadwalUjian = "Rabu, 26/06/21 - 07.00:09.00"
+                        val id = data?.id.toString()
                         val namaGedung = data?.namaGedung.toString()
                         val alamat = data?.alamat.toString()
                         val latitude = data?.latitude.toString()
@@ -118,7 +120,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
 
                         //kirim data ke function getData()
                         handler.post {
-                            callback(namaMahasiswa, nomorUjian, jadwalUjian, namaGedung, alamat, latitude, longitude)
+                            callback(namaMahasiswa, nomorUjian, jadwalUjian, id, namaGedung, alamat, latitude, longitude)
                         }
                     } else {
                         Log.i("Response", response.message().toString())

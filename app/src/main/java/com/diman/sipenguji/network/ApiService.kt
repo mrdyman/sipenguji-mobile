@@ -1,5 +1,6 @@
 package com.diman.sipenguji.network
 
+import com.diman.sipenguji.model.Calculate
 import com.diman.sipenguji.model.Gedung
 import retrofit2.Call
 import retrofit2.http.*
@@ -23,4 +24,12 @@ interface ApiService {
         @Field("latitude") lat: Float,
         @Field("longitude") lng: Float
     ): Call<Gedung>
+
+    @FormUrlEncoded
+    @POST("api/calculate")
+    fun calculate (
+        @Field("source") source: String,
+        @Field("destination") destination: String,
+        @Field("decoded_Path") decodedPath: String,
+    ) : Call<Calculate>
 }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
 import kotlinx.android.synthetic.main.fragment_location.*
 
@@ -25,6 +26,11 @@ class LocationFragment : Fragment() {
         val user_koordinat = "$srcLatitude, $srcLongitude"
         tv_source.text = user_koordinat
         tv_destination.text = activity?.intent?.getStringExtra("destination_name")
+
+        btn_edit.setOnClickListener {
+            val i = Intent(activity, MainActivity::class.java)
+            startActivity(i)
+        }
     }
 
 }

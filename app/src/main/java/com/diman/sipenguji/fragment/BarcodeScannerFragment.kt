@@ -77,14 +77,12 @@ class BarcodeScannerFragment : Fragment() {
     }
 
     private fun makeRequest() {
-        ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.CAMERA),
-            BarcodeScannerFragment.CAMERA_REQ
-        )
+        ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.CAMERA), CAMERA_REQ)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray) {
         when (requestCode) {
-            BarcodeScannerFragment.CAMERA_REQ -> {
+            CAMERA_REQ -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(
                         requireActivity(),

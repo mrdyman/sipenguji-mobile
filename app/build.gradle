@@ -79,6 +79,9 @@ dependencies {
     //location
     implementation 'com.google.android.gms:play-services-location:18.0.0'
 
+    //googlemaps direction
+    implementation 'com.google.maps:google-maps-services:0.2.9'
+
     //Library to get URL Meta Data
     implementation 'org.jsoup:jsoup:1.13.1'
 }

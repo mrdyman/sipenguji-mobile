@@ -3,18 +3,23 @@ package com.diman.sipenguji.fragment
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.diman.sipenguji.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
+import com.google.maps.DirectionsApiRequest
+import com.google.maps.GeoApiContext
+import com.google.maps.PendingResult
+import com.google.maps.internal.PolylineEncoding
+import com.google.maps.model.DirectionsResult
 
 class MapsFragment : Fragment() {
 
@@ -29,8 +34,8 @@ class MapsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        val sydney = LatLng(-0.8362910375738536, 119.89439842666054)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        val sydney = LatLng(-0.8306791,119.8849217)
+        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Kos"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 17.0f))
     }

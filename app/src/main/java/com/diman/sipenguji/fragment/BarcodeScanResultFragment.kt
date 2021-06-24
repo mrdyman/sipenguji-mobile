@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
+import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
 import com.diman.sipenguji.RuteTerpendekActivity
 import com.diman.sipenguji.model.Gedung
@@ -30,30 +31,9 @@ import java.util.jar.Manifest
 
 class BarcodeScanResultFragment : BottomSheetDialogFragment() {
 
-    private val LOCATION_PERMISSION_REQ_CODE = 1000
-    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private var source_latitude : Double = 0.0
-    private var source_longitude : Double = 0.0
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_barcode_scan_result, container, false)
-    }
-
-    //check permission/izin akses lokasi user
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        when(requestCode){
-            LOCATION_PERMISSION_REQ_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    //permission granted
-                    Log.i("Permission_status", "Location Permission GRANTED")
-                } else {
-                    //permission denied
-                    Log.i("permission_status", "Location Permission DENIED")
-
-                }
-            }
-        }
     }
 
     //we will call this function to update the URL displayed
@@ -90,22 +70,22 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
     fun displayData(kode: Int){
         getData(kode){ namaMahasiswa, nomorUjian, jadwalUjian, namaGedung, alamat, latitude, longitude ->
             view?.apply {
-                //initialize fused location client untuk dapatkan lokasi user
-                fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
                 tv_value_nama.text = namaMahasiswa
                 tv_value_nomor_ujian.text = nomorUjian
                 tv_value_jadwal.text = jadwalUjian
                 tv_value_gedung.text = namaGedung
                 tv_value_alamat.text = alamat
-                //call get user current location function
-                getCurrentLocation()
                 findViewById<Button>(R.id.btn_get_rute).setOnClickListener {
                     //show activity jalur terpendek
                     Intent(Intent.ACTION_VIEW).also {
                         val i = Intent(activity, RuteTerpendekActivity::class.java)
                         //siapkan data untuk dikirim ke fragment maps
-                        i.putExtra("source_latitude", source_latitude.toString())
-                        i.putExtra("source_longitude", source_longitude.toString())
+                        //ambil data latitude dan longitude dari mainActivity
+                        val lat = (activity as MainActivity).userLatitude
+                        val lng = (activity as MainActivity).userLongitude
+                        Log.d("Loc", lat.toString())
+                        i.putExtra("source_latitude", lat.toString())
+                        i.putExtra("source_longitude", lng.toString())
                         i.putExtra("destination_latitude", latitude)
                         i.putExtra("destination_longitude", longitude)
                         i.putExtra("destination_name", namaGedung)
@@ -151,25 +131,5 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
 
             })
         }
-    }
-
-    private fun getCurrentLocation(){
-        //checking location permission
-        if (ActivityCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-            //request permission
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQ_CODE)
-            return
-        }
-
-        fusedLocationProviderClient.lastLocation
-            .addOnSuccessListener { location ->
-                //getting the last known location or current location
-                Log.i("Location", "Getting Location..")
-                source_latitude = location.latitude
-                source_longitude = location.longitude
-            }
-            .addOnFailureListener {
-                Log.i("Location", "Failde to getting current location")
-            }
     }
 }

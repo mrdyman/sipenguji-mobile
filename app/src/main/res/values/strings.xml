@@ -2,4 +2,5 @@
     <string name="app_name">Sipenguji</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="google_maps_api_key">AIzaSyAtQiu5XXm1YpuLmPs1n33fTR7hfWsY-Jo</string>
 </resources>

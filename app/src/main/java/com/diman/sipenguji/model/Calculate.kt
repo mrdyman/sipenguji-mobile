@@ -11,7 +11,8 @@ data class Calculate(
 	val titikAwal: String? = null,
 
 	@field:SerializedName("data")
-	val data: String? = null,
+//	val data: List<Double?>? = null,
+	val data: List<List<Double>>? = null,
 
 	@field:SerializedName("status")
 	val status: Boolean? = null

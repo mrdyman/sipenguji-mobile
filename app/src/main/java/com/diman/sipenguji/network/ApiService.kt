@@ -29,7 +29,7 @@ interface ApiService {
     @POST("api/calculate")
     fun calculate (
         @Field("source") source: String,
-        @Field("destination") destination: String,
+        @Field("destination") destination: String?,
         @Field("decoded_Path") decodedPath: String,
     ) : Call<Calculate>
 }

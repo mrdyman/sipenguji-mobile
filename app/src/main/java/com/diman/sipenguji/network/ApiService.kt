@@ -2,6 +2,7 @@ package com.diman.sipenguji.network
 
 import com.diman.sipenguji.model.Calculate
 import com.diman.sipenguji.model.Gedung
+import com.diman.sipenguji.model.Ruangan
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -14,7 +15,7 @@ interface ApiService {
     @GET("api/gedung/{id}")
     fun getGedung(@Query("id")id: Int): Call<Gedung>
 
-    // post data using field x-www-form-urlencoded
+    // post data gedung using field x-www-form-urlencoded
     @FormUrlEncoded
     @POST("api/gedung")
     fun createGedung(
@@ -25,6 +26,15 @@ interface ApiService {
         @Field("longitude") lng: Float
     ): Call<Gedung>
 
+    //getList Ruangan
+    @GET("api/ruangan")
+    fun getListRuangan() : Call<Ruangan>
+
+    //get Ruangan By Id
+    @GET("api/ruangan")
+    fun getRuangan(@Query("id")id: Int) : Call<Ruangan>
+
+    //calculate shortest path
     @FormUrlEncoded
     @POST("api/calculate")
     fun calculate (

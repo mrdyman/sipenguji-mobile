@@ -17,6 +17,7 @@ import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
 import com.diman.sipenguji.RuteTerpendekActivity
 import com.diman.sipenguji.model.Gedung
+import com.diman.sipenguji.model.Ruangan
 import com.diman.sipenguji.network.ApiConfig
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -103,15 +104,15 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
         val handler = Handler(Looper.getMainLooper())
         executor.execute{
             //call sipenguji-api
-            val client = ApiConfig.getApiService().getGedung(kode)
-            client.enqueue(object: Callback<Gedung>{
-                override fun onResponse(call: Call<Gedung>, response: Response<Gedung>) {
+            val client = ApiConfig.getApiService().getRuangan(kode)
+            client.enqueue(object: Callback<Ruangan>{
+                override fun onResponse(call: Call<Ruangan>, response: Response<Ruangan>) {
                     if (response.isSuccessful){
                         Log.i("Response", "Successful get data to API")
                         val data = response.body()?.data?.get(0)
                         val namaMahasiswa = "A. Mardiman Saputra" //will change to data from api
                         val nomorUjian = "3123123123123123"
-                        val jadwalUjian = "Rabu, 26/06/21 - 07.00:09.00"
+                        val jadwalUjian = data?.jadwal.toString()
                         val id = data?.id.toString()
                         val namaGedung = data?.namaGedung.toString()
                         val alamat = data?.alamat.toString()
@@ -127,7 +128,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
                     }
                 }
 
-                override fun onFailure(call: Call<Gedung>, t: Throwable) {
+                override fun onFailure(call: Call<Ruangan>, t: Throwable) {
                     Log.i("Response", "Failed to connect to API ${t.printStackTrace()}")
                 }
 

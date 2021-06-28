@@ -18,6 +18,7 @@ import com.google.maps.GeoApiContext
 import com.google.maps.PendingResult
 import com.google.maps.internal.PolylineEncoding
 import com.google.maps.model.DirectionsResult
+import com.google.maps.model.LatLng as latLng
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

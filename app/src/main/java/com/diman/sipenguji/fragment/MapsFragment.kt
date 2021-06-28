@@ -45,11 +45,20 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         dataPolyline = (activity as RuteTerpendekActivity).direction
         Log.d("Now", dataPolyline.toString())
 
-        val kos = LatLng(-0.8306791,119.8849217)
-        gMap.addMarker(MarkerOptions().position(kos).title("Marker in Kos"))
-        gMap.moveCamera(CameraUpdateFactory.newLatLng(kos))
-        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kos, 17.0f))
 
-        gMap.addPolyline(PolylineOptions().addAll(dataPolyline))
+        //display polyline from API
+        val polyline = gMap.addPolyline(PolylineOptions().addAll(dataPolyline))
+        polyline.color = (requireActivity().getColor(R.color.orange))
+        polyline.width = 12f
+
+        //add marker at start and end of polyline
+        val origin = dataPolyline[0]
+        val destination = dataPolyline[dataPolyline.size - 1]
+        gMap.addMarker(MarkerOptions().position(origin).title("Your Location").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)))
+        gMap.addMarker(MarkerOptions().position(destination).title("Your Destination"))
+
+        //zoom camera maps to destination
+        gMap.moveCamera(CameraUpdateFactory.newLatLng(destination))
+        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(destination, 17.0f))
     }
 }

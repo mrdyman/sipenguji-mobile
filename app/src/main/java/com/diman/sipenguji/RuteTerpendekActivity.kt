@@ -1,24 +1,24 @@
 package com.diman.sipenguji
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.diman.sipenguji.fragment.LocationFragment
 import com.diman.sipenguji.fragment.MapsFragment
 import com.diman.sipenguji.model.Calculate
 import com.diman.sipenguji.network.ApiConfig
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.DirectionsApiRequest
 import com.google.maps.GeoApiContext
 import com.google.maps.PendingResult
 import com.google.maps.internal.PolylineEncoding
 import com.google.maps.model.DirectionsResult
-import com.google.maps.model.LatLng as latLng
+import kotlinx.android.synthetic.main.activity_rute_terpendek.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,11 +28,23 @@ class RuteTerpendekActivity : AppCompatActivity() {
     var finalPolyline : List<List<Double>>? = null
     var direction: MutableList<LatLng> = ArrayList()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rute_terpendek)
 
         calculateDirections()
+
+        initBtn()
+    }
+
+    private fun initBtn(){
+        btn_get_direction.setOnClickListener {
+            val lat = intent.getStringExtra("destination_latitude")
+            val lng = intent.getStringExtra("destination_longitude")
+            //call navigate function
+            navigate(lat!!.toDouble(), lng!!.toDouble())
+        }
     }
 
     private fun calculateDirections() {
@@ -125,7 +137,7 @@ class RuteTerpendekActivity : AppCompatActivity() {
         // request direction sekali lagi dari lokasi user -> gedung
         //modifikasi polyline -> gantikan dengan polyline dari API
         //tampilkan ke user
-        requestFinalRoutes()
+        requestFinalRoutes() // langsung call function display direction(tes kata)
     }
 
     private fun requestFinalRoutes(){
@@ -168,7 +180,7 @@ class RuteTerpendekActivity : AppCompatActivity() {
     }
 
     private fun displayDirection(data: DirectionsResult){
-        for (poly in finalPolyline!!.indices){
+        for (poly in finalPolyline!!.indices) {
             Log.d("Looping Ke:${poly}", finalPolyline!![poly].toString())
             direction.add(
                 LatLng(finalPolyline!![poly][0], finalPolyline!![poly][1])
@@ -181,5 +193,20 @@ class RuteTerpendekActivity : AppCompatActivity() {
         fr.add(R.id.ll_container_maps, MapsFragment())
         fr.add(R.id.ll_location_container, LocationFragment())
         fr.commit()
+    }
+
+    private  fun navigate(lat: Double, lng: Double){
+        val intentUri = Uri.parse("google.navigation:q=$lat,$lng")
+        val mapIntent = Intent(Intent.ACTION_VIEW, intentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+
+        try {
+            if (mapIntent.resolveActivity(this.packageManager) != null) {
+                startActivity(mapIntent)
+            }
+        } catch (e: NullPointerException) {
+            Log.e("Message", "Couldn't open map with message : ${e.message}")
+            Toast.makeText(this, "Couldn't open map", Toast.LENGTH_SHORT).show()
         }
+    }
 }

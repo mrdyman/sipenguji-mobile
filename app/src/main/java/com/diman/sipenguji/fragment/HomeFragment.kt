@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
         adapter = GedungAdapter(mutableListOf())
 
         rv_gedung.setHasFixedSize(true)
-        rv_gedung.layoutManager = LinearLayoutManager(activity)
+        rv_gedung.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         rv_gedung.adapter = adapter
 
         getGedung()

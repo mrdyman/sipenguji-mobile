@@ -1,15 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_gedung"
+    <RelativeLayout
+        android:id="@+id/ll_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_gedung" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_home_title"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_admin"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_admin_panel"
+            app:tint="@color/orange" />
+
+        <TextView
+            android:id="@+id/tv_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_admin"
+            android:fontFamily="@font/montserrat"
+            android:text="Admin?\nLogin now!" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/app_title" />
+
+        <ImageView
+            android:id="@+id/iv_report"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_contact_us"
+            app:tint="@color/orange" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_user_location"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="#F4F4F4"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_user_location"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_location"
+            app:tint="@color/orange" />
+
+        <TextView
+            android:id="@+id/tv_location_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="1dp"
+            android:layout_toEndOf="@+id/iv_user_location"
+            android:fontFamily="@font/montserrat"
+            android:text="PALU" />
+
+        <ImageView
+            android:id="@+id/iv_change_location"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_keyboard_arrow_down" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_banner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/banner_img" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_list_gedung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:text="Gedung"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:text="More" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_list_gedung"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_gedung"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/card_gedung" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_gedung_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tv_ruangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif"
+            android:text="Ruangan"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_list_ruangan"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:listitem="@layout/new_item" />
+
+    </LinearLayout>
 
 </LinearLayout>

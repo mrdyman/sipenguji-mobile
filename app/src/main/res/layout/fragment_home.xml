@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--<ScrollView-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -51,148 +51,160 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/ll_user_location"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="#F4F4F4"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
-        <ImageView
-            android:id="@+id/iv_user_location"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_location"
-            app:tint="@color/orange" />
-
-        <TextView
-            android:id="@+id/tv_location_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="1dp"
-            android:layout_toEndOf="@+id/iv_user_location"
-            android:fontFamily="@font/montserrat"
-            android:text="PALU" />
-
-        <ImageView
-            android:id="@+id/iv_change_location"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_keyboard_arrow_down" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_banner"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-
-        <com.afdhal_fa.imageslider.ImageSlider
-            android:id="@+id/imageSlide"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:iss_auto_cycle="true"
-            app:iss_delay="0"
-            app:iss_period="1000"/>
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/tv_list_gedung"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
-            android:text="Gedung"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            android:orientation="vertical">
 
+            <RelativeLayout
+                android:id="@+id/ll_user_location"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="#F4F4F4"
+                android:orientation="horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            app:icon="@drawable/ic_navigate_next"
-            app:iconGravity="end"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_alignParentEnd="true"
-            android:text="More"/>
+                <ImageView
+                    android:id="@+id/iv_user_location"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_location"
+                    app:tint="@color/orange" />
 
+                <TextView
+                    android:id="@+id/tv_location_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="1dp"
+                    android:layout_toEndOf="@+id/iv_user_location"
+                    android:fontFamily="@font/montserrat"
+                    android:text="PALU" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_gedung_more"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_toLeftOf="@+id/ic_next"-->
-<!--            android:text="More"-->
-<!--            android:textSize="18sp"-->
-<!--            android:layout_marginEnd="5dp"-->
-<!--            android:textColor="@color/colorPrimaryDark"/>-->
+                <ImageView
+                    android:id="@+id/iv_change_location"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_keyboard_arrow_down" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/ic_next"-->
-<!--            android:layout_width="25dp"-->
-<!--            android:layout_height="25dp"-->
-<!--            android:src="@drawable/ic_navigate_next"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginEnd="5dp"-->
-<!--            app:tint="@color/colorPrimary"-->
-<!--            android:background="@drawable/shape_oval"/>-->
+            </RelativeLayout>
 
-    </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/ll_banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/ll_list_gedung"
-        android:layout_width="match_parent"
-        android:layout_height="220dp">
+                <com.afdhal_fa.imageslider.ImageSlider
+                    android:id="@+id/imageSlide"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="0"
+                    app:iss_period="1000" />
 
-        <!-- TODO: Update blank fragment layout -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_gedung"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_gedung" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-    <LinearLayout
-        android:id="@+id/ll_gedung_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+                <TextView
+                    android:id="@+id/tv_list_gedung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:text="Gedung"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tv_ruangan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:fontFamily="sans-serif"
-            android:text="Ruangan"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/tv_gedung_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toLeftOf="@+id/ic_next"
+                    android:text="More"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
 
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/ic_next"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/shape_oval"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/colorPrimary" />
 
-    <LinearLayout
-        android:id="@+id/ll_list_ruangan"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="horizontal">
+            </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            tools:listitem="@layout/item_ruangan" />
+            <LinearLayout
+                android:id="@+id/ll_list_gedung"
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
 
-    </LinearLayout>
+                <!-- TODO: Update blank fragment layout -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_gedung"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_gedung" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:background="@drawable/shape_oval">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_gedung_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/tv_ruangan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Ruangan"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_list_ruangan"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/item_ruangan" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

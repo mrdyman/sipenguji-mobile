@@ -91,11 +91,13 @@
         android:layout_height="150dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/iv_banner"
+        <com.afdhal_fa.imageslider.ImageSlider
+            android:id="@+id/imageSlide"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/banner_img" />
+            app:iss_auto_cycle="true"
+            app:iss_delay="0"
+            app:iss_period="1000"/>
 
     </LinearLayout>
 
@@ -112,15 +114,38 @@
             android:layout_marginStart="8dp"
             android:text="Gedung"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/btn_more"
+
+        <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            app:icon="@drawable/ic_navigate_next"
+            app:iconGravity="end"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="5dp"
-            android:text="More" />
+            android:text="More"/>
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_gedung_more"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toLeftOf="@+id/ic_next"-->
+<!--            android:text="More"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:textColor="@color/colorPrimaryDark"/>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ic_next"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:src="@drawable/ic_navigate_next"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            app:tint="@color/colorPrimary"-->
+<!--            android:background="@drawable/shape_oval"/>-->
 
     </RelativeLayout>
 
@@ -134,7 +159,7 @@
             android:id="@+id/rv_gedung"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/card_gedung" />
+            tools:listitem="@layout/item_gedung" />
 
     </LinearLayout>
 
@@ -166,7 +191,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            tools:listitem="@layout/new_item" />
+            tools:listitem="@layout/item_ruangan" />
 
     </LinearLayout>
 

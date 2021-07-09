@@ -111,7 +111,7 @@ class BarcodeScanResultFragment : BottomSheetDialogFragment() {
                         Log.i("Response", "Successful get data to API")
                         val data = response.body()?.data?.get(0)
                         val namaMahasiswa = "A. Mardiman Saputra" //will change to data from api
-                        val nomorUjian = "3123123123123123"
+                        val nomorUjian = data?.nomorPeserta.toString()
                         val jadwalUjian = data?.jadwal.toString()
                         val id = data?.id.toString()
                         val namaGedung = data?.namaGedung.toString()

@@ -2,12 +2,14 @@ package com.diman.sipenguji.fragment
 
 import android.app.Application
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.afdhal_fa.imageslider.model.SlideUIModel
 import com.diman.sipenguji.R
 import com.diman.sipenguji.adapter.GedungAdapter
 import com.diman.sipenguji.model.DataItem
@@ -38,6 +40,7 @@ class HomeFragment : Fragment() {
         rv_gedung.adapter = adapter
 
         getGedung()
+        loadBanner()
     }
 
     private fun getGedung() {
@@ -58,5 +61,15 @@ class HomeFragment : Fragment() {
             }
 
         })
+    }
+
+    fun loadBanner(){
+        val imageList = ArrayList<SlideUIModel>()
+        imageList.add(SlideUIModel("https://s.id/Ccoeo", "Blackpink - Jennie"))
+        imageList.add(SlideUIModel("https://s.id/CcouZ", "Blackpink - Lisa"))
+        imageList.add(SlideUIModel("https://s.id/CcoQ1", "Blackpink - Rose"))
+        imageList.add(SlideUIModel("https://s.id/Cco-g", "Blackpink - Jisoo"))
+
+        imageSlide.setImageList(imageList)
     }
 }

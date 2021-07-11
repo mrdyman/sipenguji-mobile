@@ -74,7 +74,7 @@
                     android:layout_height="25dp"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_location"
-                    app:tint="@color/orange" />
+                    app:tint="#10BC40" />
 
                 <TextView
                     android:id="@+id/tv_location_name"
@@ -105,6 +105,9 @@
                     android:id="@+id/imageSlide"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:iss_image_scaleType="centerCrop"
+                    app:iss_with_title="false"
+                    app:iss_with_background="false"
                     app:iss_auto_cycle="true"
                     app:iss_delay="0"
                     app:iss_period="1000" />

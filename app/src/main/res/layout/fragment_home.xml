@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/iv_admin"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/helvetica"
             android:text="Admin?\nLogin now!" />
 
         <ImageView
@@ -83,7 +83,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="1dp"
                     android:layout_toEndOf="@+id/iv_user_location"
-                    android:fontFamily="@font/montserrat"
+                    android:fontFamily="@font/helvetica"
                     android:text="PALU" />
 
                 <ImageView
@@ -126,6 +126,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="8dp"
                     android:text="Gedung"
+                    android:fontFamily="@font/helvetica"
                     android:textColor="@color/colorPrimary"
                     android:textSize="18sp" />
 
@@ -136,8 +137,9 @@
                     android:layout_marginEnd="5dp"
                     android:layout_toLeftOf="@+id/ic_next"
                     android:text="More"
+                    android:fontFamily="@font/helvetica"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <ImageView
                     android:id="@+id/ic_next"
@@ -184,7 +186,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginBottom="10dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@font/helvetica"
                     android:text="Ruangan"
                     android:textColor="@color/colorPrimary"
                     android:textSize="18sp" />

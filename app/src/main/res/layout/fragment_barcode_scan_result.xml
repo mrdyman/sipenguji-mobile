@@ -39,6 +39,7 @@
             android:textSize="20sp"
             android:textColor="@color/black"
             android:layout_below="@id/iv_swipe"
+            android:fontFamily="@font/helveticaroundedbold"
             android:gravity="center"/>
 
         <LinearLayout
@@ -54,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nama"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -63,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nomor Ujian"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -72,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gedung"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -81,6 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -90,6 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Jadwal"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -110,6 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -119,6 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -128,6 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -137,6 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -146,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":"
+                android:fontFamily="@font/helveticabold"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -165,6 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Gedung"
+                android:fontFamily="@font/helvetica"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -174,6 +186,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="456 - 7891 - 0111 - 111 - 21"
+                android:fontFamily="@font/helvetica"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -183,6 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LABORATORIUM TEKNIK INFORMATIKA"
+                android:fontFamily="@font/helvetica"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@color/black"/>
@@ -192,6 +206,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Universitas Tadulako"
+                android:fontFamily="@font/helvetica"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -201,6 +216,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rabu, 26/06/21 - 07.00 : 09.00"
+                android:fontFamily="@font/helvetica"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
@@ -216,6 +232,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lihat Rute"
+            android:fontFamily="@font/helveticaroundedbold"
             style="@style/Widget.MaterialComponents.Button"/>
 
     </RelativeLayout>

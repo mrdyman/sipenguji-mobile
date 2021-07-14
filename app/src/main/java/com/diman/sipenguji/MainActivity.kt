@@ -14,6 +14,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.facebook.stetho.Stetho
 import com.google.android.gms.location.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
 

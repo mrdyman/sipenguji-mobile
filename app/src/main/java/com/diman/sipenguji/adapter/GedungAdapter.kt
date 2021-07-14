@@ -1,5 +1,7 @@
 package com.diman.sipenguji.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.diman.sipenguji.DetailGedungActivity
+import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
 import com.diman.sipenguji.model.DataItem
+import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.item_gedung.view.*
 
 class GedungAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adapter<GedungAdapter.GedungHolder>() {
@@ -36,6 +41,13 @@ class GedungAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adapter<
 
         holder.tvNamaGedung.text = _gedung.namaGedung
         holder.tvAlamatGedung.text = _gedung.alamat
+
+        holder.rvGedung.setOnClickListener {
+            val id = _gedung.id
+            Log.e("IDIDID", id.toString())
+            val activity = holder.itemView.context
+            showDetailGedung(activity, id)
+        }
     }
 
     //fungsi untuk hitung jumlah data
@@ -50,12 +62,18 @@ class GedungAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adapter<
         var ivGambarGedung = itemView.iv_gedung_img
         var tvNamaGedung = itemView.tv_gedungName
         var tvAlamatGedung = itemView.tv_alamatGedung
-
+        var rvGedung = itemView.cv_gedung
     }
 
     //fungsi untuk masukkan data gedung kedalam recycleview
     fun addGedung(newDataGedung: DataItem){
         gedung.add(newDataGedung)
         notifyItemInserted(gedung.lastIndex)
+    }
+
+    fun showDetailGedung(context: Context, id: String?){
+        var i = Intent(context, DetailGedungActivity::class.java)
+        i.putExtra("id_gedung", id)
+        context.startActivity(i)
     }
 }

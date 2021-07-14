@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Ruangan FATEK 10"
+            android:fontFamily="@font/helveticaroundedbold"
             android:textColor="@color/black"
             android:textStyle="bold" />
 

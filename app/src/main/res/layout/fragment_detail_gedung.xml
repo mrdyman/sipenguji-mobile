@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".fragment.DetailGedungFragment">
 
     <LinearLayout
         android:id="@+id/ll_back_button_content"
@@ -74,6 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LABORATORIUM TEKNIK INFORMATIKA"
+            android:fontFamily="@font/helveticaroundedbold"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -89,17 +92,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jumlah Ruangan" />
+                    android:text="Jumlah Ruangan"
+                    android:fontFamily="@font/helveticabold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Latitude" />
+                    android:text="Latitude"
+                    android:fontFamily="@font/helveticabold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Longitude" />
+                    android:text="Longitude"
+                    android:fontFamily="@font/helveticabold"/>
 
             </LinearLayout>
 
@@ -113,19 +119,22 @@
                     android:id="@+id/tv_jumlah_ruangan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10" />
+                    android:text="10"
+                    android:fontFamily="@font/helvetica"/>
 
                 <TextView
                     android:id="@+id/tv_latitude"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="-1222.32321" />
+                    android:text="-1222.32321"
+                    android:fontFamily="@font/helvetica"/>
 
                 <TextView
                     android:id="@+id/tv_longitude"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="119.123894" />
+                    android:text="119.123894"
+                    android:fontFamily="@font/helvetica"/>
 
             </LinearLayout>
 
@@ -149,6 +158,7 @@
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="DATA RUANGAN"
+        android:fontFamily="@font/helveticabold"
         android:textStyle="bold" />
 
     <ImageView
@@ -205,6 +215,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="NAMA RUANGAN"
+                        android:fontFamily="@font/helveticaroundedbold"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -219,22 +230,26 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Jadwal" />
+                                android:text="Jadwal"
+                                android:fontFamily="@font/helveticabold"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Hari/Tgl" />
+                                android:text="Hari/Tgl"
+                                android:fontFamily="@font/helveticabold"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Jam" />
+                                android:text="Jam"
+                                android:fontFamily="@font/helveticabold"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Jumlah Peserta" />
+                                android:text="Jumlah Peserta"
+                                android:fontFamily="@font/helveticabold"/>
 
                         </LinearLayout>
 
@@ -247,22 +262,26 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text=":" />
+                                android:text=":"
+                                android:fontFamily="@font/helveticabold"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rabu/, 14/Juli/2021" />
+                                android:text="Rabu/, 14/Juli/2021"
+                                android:fontFamily="@font/helvetica"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="07.30 : 10.00" />
+                                android:text="07.30 : 10.00"
+                                android:fontFamily="@font/helvetica"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="10 Orang" />
+                                android:text="10 Orang"
+                                android:fontFamily="@font/helvetica"/>
 
                         </LinearLayout>
 
@@ -276,6 +295,7 @@
                         android:layout_marginEnd="20dp"
                         android:gravity="end"
                         android:text="Detail"
+                        android:fontFamily="@font/helveticabold"
                         android:textColor="@color/colorPrimaryDark" />
 
                 </LinearLayout>
@@ -292,6 +312,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="GET ROUTES"
+        android:fontFamily="@font/helveticaroundedbold"
         android:backgroundTint="@color/orange"/>
 
 </RelativeLayout>

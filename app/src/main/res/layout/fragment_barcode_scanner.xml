@@ -35,6 +35,7 @@
                 android:text="How to Use?"
                 android:textStyle="bold"
                 android:textColor="@color/black"
+                android:fontFamily="@font/helveticabold"
                 android:textSize="25sp"/>
 
             <TextView
@@ -42,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
                 android:text="Pastikan koneksi internet stabil"
+                android:fontFamily="@font/helvetica"
                 android:textColor="@color/black"
                 app:drawableStartCompat="@drawable/ic_check_circle" />
 
@@ -50,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
                 android:text="Arahkan Camera ke Barcode"
+                android:fontFamily="@font/helvetica"
                 android:textColor="@color/black"
                 app:drawableStartCompat="@drawable/ic_check_circle" />
 
@@ -58,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
                 android:text="Pilih Get Direction"
+                android:fontFamily="@font/helvetica"
                 android:textColor="@color/black"
                 app:drawableStartCompat="@drawable/ic_check_circle" />
 

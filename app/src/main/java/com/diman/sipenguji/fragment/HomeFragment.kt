@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.afdhal_fa.imageslider.`interface`.ItemClickListener
 import com.afdhal_fa.imageslider.model.SlideUIModel
 import com.diman.sipenguji.R
 import com.diman.sipenguji.adapter.GedungAdapter
@@ -76,7 +78,7 @@ class HomeFragment : Fragment() {
                 if (response.isSuccessful){
                     val dataBanner = response.body()?.data as List<DataBanner>
                     for (data in dataBanner){
-                        bannerList.add(SlideUIModel(data.gambar.toString()))
+                        bannerList.add(SlideUIModel(data.gambar.toString(), data.link))
                     }
                     is_banner.setImageList(bannerList)
                 } else {
@@ -89,5 +91,13 @@ class HomeFragment : Fragment() {
             }
 
         })
+
+        //add listener to handle onClick banner
+        is_banner.setItemClickListener(object : ItemClickListener {
+            override fun onItemClick(model: SlideUIModel, position: Int) {
+                Toast.makeText(requireActivity(), "${model.title}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
 }

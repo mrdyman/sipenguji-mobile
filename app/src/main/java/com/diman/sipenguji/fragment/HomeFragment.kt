@@ -1,6 +1,8 @@
 package com.diman.sipenguji.fragment
 
 import android.app.Application
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -95,6 +97,8 @@ class HomeFragment : Fragment() {
         //add listener to handle onClick banner
         is_banner.setItemClickListener(object : ItemClickListener {
             override fun onItemClick(model: SlideUIModel, position: Int) {
+                val link = Intent(Intent.ACTION_VIEW, Uri.parse(model.title))
+                startActivity(link)
                 Toast.makeText(requireActivity(), "${model.title}", Toast.LENGTH_SHORT).show()
             }
         })

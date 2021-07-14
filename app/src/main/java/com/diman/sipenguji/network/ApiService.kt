@@ -1,5 +1,6 @@
 package com.diman.sipenguji.network
 
+import com.diman.sipenguji.model.Banner
 import com.diman.sipenguji.model.Calculate
 import com.diman.sipenguji.model.Gedung
 import com.diman.sipenguji.model.Ruangan
@@ -42,4 +43,10 @@ interface ApiService {
         @Field("destination") destination: String?,
         @Field("decoded_Path") decodedPath: String,
     ) : Call<Calculate>
+
+    //Banner
+
+    //getListBanner
+    @GET("api/banner")
+    fun getListBanner() : Call<Banner>
 }

@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.afdhal_fa.imageslider.model.SlideUIModel
 import com.diman.sipenguji.R
 import com.diman.sipenguji.adapter.GedungAdapter
+import com.diman.sipenguji.model.Banner
+import com.diman.sipenguji.model.DataBanner
 import com.diman.sipenguji.model.DataItem
 import com.diman.sipenguji.model.Gedung
 import com.diman.sipenguji.network.ApiConfig
@@ -64,12 +66,28 @@ class HomeFragment : Fragment() {
     }
 
     fun loadBanner(){
-        val imageList = ArrayList<SlideUIModel>()
-        imageList.add(SlideUIModel("https://s.id/Ccoeo", "Blackpink - Jennie"))
-        imageList.add(SlideUIModel("https://s.id/CcouZ", "Blackpink - Lisa"))
-        imageList.add(SlideUIModel("https://s.id/CcoQ1", "Blackpink - Rose"))
-        imageList.add(SlideUIModel("https://s.id/Cco-g", "Blackpink - Jisoo"))
+        val bannerList = ArrayList<SlideUIModel>()
 
-        imageSlide.setImageList(imageList)
+        //request banner ke API
+        val client = ApiConfig.getApiService().getListBanner()
+        client.enqueue(object : Callback<Banner>{
+            override fun onResponse(call: Call<Banner>, response: Response<Banner>) {
+                Log.d("Response", "Successful connected to API Endpoint Banner")
+                if (response.isSuccessful){
+                    val dataBanner = response.body()?.data as List<DataBanner>
+                    for (data in dataBanner){
+                        bannerList.add(SlideUIModel(data.gambar.toString()))
+                    }
+                    is_banner.setImageList(bannerList)
+                } else {
+                    Log.d("Response", "Failed to connect to API EndPoint")
+                }
+            }
+
+            override fun onFailure(call: Call<Banner>, t: Throwable) {
+                Log.d("Response", "Failed to connect to API with message ${t.printStackTrace()}")
+            }
+
+        })
     }
 }

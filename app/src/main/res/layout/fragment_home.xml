@@ -102,7 +102,7 @@
                 android:orientation="horizontal">
 
                 <com.afdhal_fa.imageslider.ImageSlider
-                    android:id="@+id/imageSlide"
+                    android:id="@+id/is_banner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:iss_image_scaleType="centerCrop"
@@ -110,7 +110,7 @@
                     app:iss_with_background="false"
                     app:iss_auto_cycle="true"
                     app:iss_delay="0"
-                    app:iss_period="1000" />
+                    app:iss_period="5000" />
 
             </LinearLayout>
 

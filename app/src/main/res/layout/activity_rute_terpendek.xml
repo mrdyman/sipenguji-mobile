@@ -39,6 +39,7 @@
             android:backgroundTint="@color/orange"
             android:text="Harap sesuaikan kendaraan yang digunakan!"
             android:textAlignment="center"
+            android:fontFamily="@font/helvetica"
             android:paddingTop="4dp"
             android:textColor="@color/black"
             android:background="@drawable/shape_oval"
@@ -50,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
+            android:fontFamily="@font/helveticaroundedbold"
             android:text="GET DIRECTION"/>
 
     </LinearLayout>

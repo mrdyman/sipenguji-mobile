@@ -35,6 +35,9 @@ interface ApiService {
     @GET("api/ruangan")
     fun getRuangan(@Query("id")id: Int) : Call<Ruangan>
 
+    @GET("api/ruangan")
+    fun getListRuanganByGedungId(@Query("gedung_id")gedung_id: Int) : Call<Ruangan>
+
     //calculate shortest path
     @FormUrlEncoded
     @POST("api/calculate")

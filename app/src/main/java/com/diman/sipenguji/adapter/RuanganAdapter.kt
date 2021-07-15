@@ -23,7 +23,7 @@ class RuanganAdapter (val ruangan : MutableList<DataRuangan>) : RecyclerView.Ada
         holder.namaRuangan.text = _ruangan.namaRuangan
 
         Glide.with(holder.itemView.context)
-            .load(_ruangan.gambar)
+            .load("https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
             .apply(RequestOptions().centerCrop().placeholder(R.drawable.banner_img))
             .into(holder.gambarRuangan)
     }

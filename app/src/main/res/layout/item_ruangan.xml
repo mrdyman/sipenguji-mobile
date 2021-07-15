@@ -30,6 +30,7 @@
             android:text="FATEK 10"
             android:fontFamily="@font/helveticaroundedbold"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"/>
 
 </LinearLayout>

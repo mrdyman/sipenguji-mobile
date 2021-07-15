@@ -1,0 +1,50 @@
+package com.diman.sipenguji.adapter
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.diman.sipenguji.R
+import com.diman.sipenguji.model.DataRuangan
+import kotlinx.android.synthetic.main.item_ruangan.view.*
+import kotlinx.android.synthetic.main.item_ruangan_list.view.*
+
+class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>) : RecyclerView.Adapter<RuanganListAdapter.RuanganListHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RuanganListHolder {
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_ruangan_list, parent, false)
+        return RuanganListHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: RuanganListHolder, position: Int) {
+        val _ruanganList = ruanganList[position]
+
+        Glide.with(holder.itemView.context)
+            .load("https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
+            .apply(RequestOptions().centerCrop().placeholder(R.drawable.banner_img))
+            .into(holder.gambarRuangan)
+
+        holder.namaRuangan.text = _ruanganList.namaRuangan
+        holder.jadwalHari.text = _ruanganList.jadwal
+        holder.jumlahPeserta.text = _ruanganList.jumlahPeserta
+    }
+
+    override fun getItemCount(): Int {
+        return ruanganList.size
+    }
+
+    class RuanganListHolder (itemView : View): RecyclerView.ViewHolder(itemView) {
+        val gambarRuangan = itemView.iv_foto_ruangan
+        val namaRuangan = itemView.tv_nama_ruangan_list
+        val jadwalHari = itemView.tv_ruangan_jadwal_hari_list
+        val jadwalJam = itemView.tv_ruangan_jadwal_jam_list
+        val jumlahPeserta = itemView.tv_ruangan_jumlah_peserta_list
+    }
+
+    fun addDataRuanganList(newDataRuangan : DataRuangan){
+        ruanganList.add(newDataRuangan)
+        notifyItemInserted(ruanganList.lastIndex)
+    }
+}

@@ -44,7 +44,6 @@ class GedungAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adapter<
 
         holder.rvGedung.setOnClickListener {
             val id = _gedung.id
-            Log.e("IDIDID", id.toString())
             val activity = holder.itemView.context
             showDetailGedung(activity, id)
         }

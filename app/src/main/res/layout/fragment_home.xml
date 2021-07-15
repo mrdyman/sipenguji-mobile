@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--<ScrollView-->
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -30,7 +30,8 @@
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/iv_admin"
             android:fontFamily="@font/helvetica"
-            android:text="Admin?\nLogin now!" />
+            android:text="Admin?\nLogin now!"
+            android:textColor="@color/colorPrimary"/>
 
         <ImageView
             android:layout_width="100dp"
@@ -84,7 +85,7 @@
                     android:layout_marginStart="1dp"
                     android:layout_toEndOf="@+id/iv_user_location"
                     android:fontFamily="@font/helvetica"
-                    android:text="PALU" />
+                    android:text="Lokasi Kamu" />
 
                 <ImageView
                     android:id="@+id/iv_change_location"
@@ -198,13 +199,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
                 android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_ruangan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    tools:listitem="@layout/item_ruangan" />
+                    tools:listitem="@layout/item_ruangan"/>
 
             </LinearLayout>
 

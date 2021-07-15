@@ -16,10 +16,8 @@ import com.afdhal_fa.imageslider.`interface`.ItemClickListener
 import com.afdhal_fa.imageslider.model.SlideUIModel
 import com.diman.sipenguji.R
 import com.diman.sipenguji.adapter.GedungAdapter
-import com.diman.sipenguji.model.Banner
-import com.diman.sipenguji.model.DataBanner
-import com.diman.sipenguji.model.DataItem
-import com.diman.sipenguji.model.Gedung
+import com.diman.sipenguji.adapter.RuanganAdapter
+import com.diman.sipenguji.model.*
 import com.diman.sipenguji.network.ApiConfig
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
@@ -28,7 +26,8 @@ import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
-    private lateinit var adapter: GedungAdapter
+    private lateinit var gedungAdapter: GedungAdapter
+    private lateinit var ruanganAdapter: RuanganAdapter
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
 
@@ -39,14 +38,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = GedungAdapter(mutableListOf())
+        gedungAdapter = GedungAdapter(mutableListOf())
+        ruanganAdapter = RuanganAdapter(mutableListOf())
 
         rv_gedung.setHasFixedSize(true)
         rv_gedung.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        rv_gedung.adapter = adapter
+        rv_gedung.adapter = gedungAdapter
+
+        rv_ruangan.setHasFixedSize(true)
+        rv_ruangan.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        rv_ruangan.adapter = ruanganAdapter
 
         getGedung()
+        getRuangan()
         loadBanner()
+        adminLogin()
     }
 
     private fun getGedung() {
@@ -57,13 +63,36 @@ class HomeFragment : Fragment() {
                 if (response.isSuccessful) {
                     val dataArray = response.body()?.data as List<DataItem>
                     for (data in dataArray) {
-                        adapter.addGedung(data)
+                        gedungAdapter.addGedung(data)
                     }
                 }
             }
 
             override fun onFailure(call: Call<Gedung>, t: Throwable) {
                 t.printStackTrace()
+            }
+
+        })
+    }
+
+    fun getRuangan(){
+        val client = ApiConfig.getApiService().getListRuangan()
+
+        client.enqueue(object : Callback<Ruangan> {
+            override fun onResponse(call: Call<Ruangan>, response: Response<Ruangan>) {
+                if (response.isSuccessful){
+                    Log.d("Response", "Connecting to API Endpoint Ruangan Successful")
+                    val dataRuangan = response.body()?.data as List<DataRuangan>
+                    for (data in dataRuangan){
+                        ruanganAdapter.addDataRuangan(data)
+                    }
+                } else {
+                    Log.d("Response", "Connecting to API Endpoint Ruangan Failed!")
+                }
+            }
+
+            override fun onFailure(call: Call<Ruangan>, t: Throwable) {
+                Log.e("Response", "Failed connecting to API with message ${t.printStackTrace()}")
             }
 
         })
@@ -99,9 +128,15 @@ class HomeFragment : Fragment() {
             override fun onItemClick(model: SlideUIModel, position: Int) {
                 val link = Intent(Intent.ACTION_VIEW, Uri.parse(model.title))
                 startActivity(link)
-                Toast.makeText(requireActivity(), "${model.title}", Toast.LENGTH_SHORT).show()
             }
         })
 
+    }
+
+    fun adminLogin(){
+        tv_admin.setOnClickListener {
+            //show login panel
+            Toast.makeText(requireActivity(), "login clicked", Toast.LENGTH_SHORT).show()
+        }
     }
 }

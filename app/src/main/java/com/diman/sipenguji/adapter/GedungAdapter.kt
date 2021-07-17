@@ -35,7 +35,7 @@ class GedungAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adapter<
         Log.d("img", _gedung.gambar.toString())
 
         Glide.with(holder.itemView.context)
-            .load("https://pbs.twimg.com/media/E5whIYxVUAABYZm?format=png&name=240x240")
+            .load("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")
             .apply(RequestOptions().centerCrop().placeholder(R.drawable.banner_img))
             .into(holder.ivGambarGedung)
 

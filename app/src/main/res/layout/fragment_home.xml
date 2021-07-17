@@ -31,7 +31,7 @@
             android:layout_toEndOf="@+id/iv_admin"
             android:fontFamily="@font/helvetica"
             android:text="Admin?\nLogin now!"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary" />
 
         <ImageView
             android:layout_width="100dp"
@@ -106,12 +106,12 @@
                     android:id="@+id/is_banner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:iss_image_scaleType="centerCrop"
-                    app:iss_with_title="false"
-                    app:iss_with_background="false"
                     app:iss_auto_cycle="true"
                     app:iss_delay="0"
-                    app:iss_period="5000" />
+                    app:iss_image_scaleType="centerCrop"
+                    app:iss_period="5000"
+                    app:iss_with_background="false"
+                    app:iss_with_title="false" />
 
             </LinearLayout>
 
@@ -125,32 +125,39 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="8dp"
-                    android:text="Gedung"
+                    android:layout_marginStart="10dp"
                     android:fontFamily="@font/helvetica"
+                    android:text="Gedung"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
-                <TextView
-                    android:id="@+id/tv_gedung_more"
+                <LinearLayout
+                    android:id="@+id/ll_gedung_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:layout_toLeftOf="@+id/ic_next"
-                    android:text="More"
-                    android:fontFamily="@font/helvetica"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="17sp" />
-
-                <ImageView
-                    android:id="@+id/ic_next"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="5dp"
-                    android:background="@drawable/shape_oval"
-                    android:src="@drawable/ic_navigate_next"
-                    app:tint="@color/colorPrimary" />
+                    android:layout_marginEnd="15dp">
+
+                    <TextView
+                        android:id="@+id/tv_gedung_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/helvetica"
+                        android:text="More"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/btn_gedung_more"
+                        style="@style/Widget.MaterialComponents.Button.IconOnly"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:icon="@drawable/ic_navigate_next"
+                        app:tint="@color/colorPrimaryDark"
+                        android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
 
             </RelativeLayout>
 
@@ -175,7 +182,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/ll_gedung_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -190,16 +197,43 @@
                     android:fontFamily="@font/helvetica"
                     android:text="Ruangan"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_ruangan_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/helvetica"
+                        android:text="More"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/btn_ruangan_more"
+                        style="@style/Widget.MaterialComponents.Button.IconOnly"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:icon="@drawable/ic_navigate_next"
+                        app:tint="@color/colorPrimaryDark"
+                        android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/ll_list_ruangan"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_marginBottom="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -207,7 +241,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    tools:listitem="@layout/item_ruangan"/>
+                    tools:listitem="@layout/item_ruangan" />
 
             </LinearLayout>
 

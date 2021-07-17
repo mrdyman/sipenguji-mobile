@@ -50,8 +50,7 @@ class DetailGedungFragment : Fragment() {
         displayDataRuangan()
 
         btn_detail_gedung_back.setOnClickListener {
-            val i = Intent(activity, MainActivity::class.java)
-            startActivity(i)
+            activity?.finish()
         }
 
     }

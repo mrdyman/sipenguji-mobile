@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
 import com.diman.sipenguji.adapter.RuanganAdapter
 import com.diman.sipenguji.adapter.RuanganListAdapter
@@ -47,8 +48,10 @@ class DetailGedungFragment : Fragment() {
 
         displayDataGedung()
         displayDataRuangan()
+
         btn_detail_gedung_back.setOnClickListener {
-            Log.d("Buttonss", "Button Back Clicked")
+            val i = Intent(activity, MainActivity::class.java)
+            startActivity(i)
         }
 
     }

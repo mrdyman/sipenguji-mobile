@@ -146,13 +146,13 @@
                         android:fontFamily="@font/helvetica"
                         android:text="More"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
 
                     <Button
                         android:id="@+id/btn_gedung_more"
                         style="@style/Widget.MaterialComponents.Button.IconOnly"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
                         app:icon="@drawable/ic_navigate_next"
                         app:tint="@color/colorPrimaryDark"
                         android:layout_gravity="center_vertical"/>
@@ -213,13 +213,13 @@
                         android:fontFamily="@font/helvetica"
                         android:text="More"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
 
                     <Button
                         android:id="@+id/btn_ruangan_more"
                         style="@style/Widget.MaterialComponents.Button.IconOnly"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
                         app:icon="@drawable/ic_navigate_next"
                         app:tint="@color/colorPrimaryDark"
                         android:layout_gravity="center_vertical"/>

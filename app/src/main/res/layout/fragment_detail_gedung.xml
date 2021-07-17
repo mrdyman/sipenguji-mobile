@@ -13,14 +13,14 @@
         android:layout_height="wrap_content"
         android:elevation="1dp">
 
-        <ImageButton
-            android:id="@+id/ib_btn_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+        <Button
+            android:id="@+id/btn_detail_gedung_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:background="@drawable/shape_bg_btn"
-            android:src="@drawable/ic_arrow_back"
-            app:tint="@color/white" />
+            app:icon="@drawable/ic_arrow_back"
+            android:backgroundTint="@color/orange"
+            style="@style/Widget.MaterialComponents.Button.IconOnly"/>
 
     </LinearLayout>
 

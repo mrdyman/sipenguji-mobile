@@ -90,4 +90,7 @@ dependencies {
 
     //imageSlider
     implementation 'com.github.Fuadafdhal:Auto-Image-Slider:1.0'
+
+    //rippleEffect
+    implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
 }

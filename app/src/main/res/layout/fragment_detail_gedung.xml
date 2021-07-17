@@ -76,6 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LABORATORIUM TEKNIK INFORMATIKA"
+            android:textColor="@color/black"
             android:fontFamily="@font/helveticaroundedbold"
             android:textStyle="bold" />
 
@@ -158,6 +159,7 @@
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="DATA RUANGAN"
+        android:textColor="@color/black"
         android:fontFamily="@font/helveticabold"
         android:textStyle="bold" />
 

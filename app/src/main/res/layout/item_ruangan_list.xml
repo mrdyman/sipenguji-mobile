@@ -55,6 +55,7 @@
                     android:fontFamily="@font/helveticaroundedbold"
                     android:gravity="center"
                     android:text="NAMA RUANGAN"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <LinearLayout

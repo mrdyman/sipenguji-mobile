@@ -15,13 +15,11 @@ import com.diman.sipenguji.model.DataRuangan
 import kotlinx.android.synthetic.main.item_ruangan.view.*
 import kotlinx.android.synthetic.main.list_ruangan_search.view.*
 
-class RuanganAdapter(val ruangan: MutableList<DataRuangan>) :
-    RecyclerView.Adapter<RuanganAdapter.RuanganHolder>() {
+class RuanganAdminAdapter(val ruangan: MutableList<DataRuangan>) :
+    RecyclerView.Adapter<RuanganAdminAdapter.RuanganHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RuanganHolder {
-//        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_ruangan, parent, false)
-        val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.list_ruangan_search, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_ruangan, parent, false)
         return RuanganHolder(view)
     }
 
@@ -47,12 +45,9 @@ class RuanganAdapter(val ruangan: MutableList<DataRuangan>) :
     }
 
     class RuanganHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //        val namaRuangan = itemView.tv_nama_ruangan
-//        val gambarRuangan = itemView.iv_gambar_ruangan
-//        val rvRuangan = itemView.cv_ruangan
-        val gambarRuangan = itemView.iv_ruangan_ujian
-        val rvRuangan = itemView.cv_ruangan_ujian
-        val namaRuangan = itemView.nama_ruangan_ujian
+        val namaRuangan = itemView.tv_nama_ruangan
+        val gambarRuangan = itemView.iv_gambar_ruangan
+        val rvRuangan = itemView.cv_ruangan
     }
 
     fun addDataRuangan(newDataRuangan: DataRuangan) {

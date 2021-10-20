@@ -6,6 +6,7 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import androidx.fragment.app.FragmentManager
 import com.diman.sipenguji.fragment.BarcodeScanResultFragment
+import com.diman.sipenguji.fragment.BarcodeScanResultFragment2
 import com.diman.sipenguji.fragment.BarcodeScannerFragment
 import com.diman.sipenguji.model.Gedung
 import com.diman.sipenguji.network.ApiConfig
@@ -18,7 +19,8 @@ import retrofit2.Response
 import kotlin.math.log
 
 class ImageAnalyzer(private val fragementManager: FragmentManager): ImageAnalysis.Analyzer {
-    private var bottomsheet = BarcodeScanResultFragment()
+//    private var bottomsheet = BarcodeScanResultFragment()
+    private var bottomsheet = BarcodeScanResultFragment2()
 
     override fun analyze(imageProxy: ImageProxy) {
         scanBarcode(imageProxy)
@@ -51,7 +53,7 @@ class ImageAnalyzer(private val fragementManager: FragmentManager): ImageAnalysi
                     val url = barcode.url?.url
                     if (!bottomsheet.isAdded){
                         bottomsheet.show(fragementManager, "")
-                        bottomsheet.updateURL(url.toString())
+//                        bottomsheet.updateURL(url.toString())
                     }
                 }
                 Barcode.TYPE_TEXT -> {
@@ -61,7 +63,7 @@ class ImageAnalyzer(private val fragementManager: FragmentManager): ImageAnalysi
                     if (!bottomsheet.isAdded) {
                         //call sipenguji-api
                         bottomsheet.show(fragementManager, "")
-                        bottomsheet.displayData(kode.toInt())
+                        bottomsheet.displayData(kode)
                     }
                 }
             }

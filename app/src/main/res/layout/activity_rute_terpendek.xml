@@ -52,7 +52,7 @@
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
             android:fontFamily="@font/helveticaroundedbold"
-            android:text="GET DIRECTION"/>
+            android:text="Buka Navigasi"/>
 
     </LinearLayout>
 

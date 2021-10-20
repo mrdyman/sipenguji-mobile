@@ -1,9 +1,6 @@
 package com.diman.sipenguji.network
 
-import com.diman.sipenguji.model.Banner
-import com.diman.sipenguji.model.Calculate
-import com.diman.sipenguji.model.Gedung
-import com.diman.sipenguji.model.Ruangan
+import com.diman.sipenguji.model.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -35,8 +32,21 @@ interface ApiService {
     @GET("api/ruangan")
     fun getRuangan(@Query("id")id: Int) : Call<Ruangan>
 
+    //get Ruangan By Gedung Id
     @GET("api/ruangan")
     fun getListRuanganByGedungId(@Query("gedung_id")gedung_id: Int) : Call<Ruangan>
+
+    //get Ruangan By Name
+    @GET("api/ruangan")
+    fun getRuanganByName(@Query("nama_ruangan")nama_gedung : String) : Call<Ruangan>
+
+    //get Ruangan Detail by nisn mahasiswa
+    @GET("api/ruangan/detail")
+    fun getRuanganByNisn(@Query("nisn")nisn : String) : Call<RuanganDetail>
+
+    //get Gambar Ruangan by Id Ruangan
+    @GET("api/gambar")
+    fun getGambar(@Query("id_ruangan")id_ruangan : Int) : Call<GambarRuangan>
 
     //calculate shortest path
     @FormUrlEncoded

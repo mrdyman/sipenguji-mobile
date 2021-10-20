@@ -93,4 +93,9 @@ dependencies {
 
     //rippleEffect
     implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
+
+    implementation 'ir.sohreco.circularpulsingbutton:circular-pulsing-button:1.0.0'
+
+    //expandable floating action button (FAB)
+    implementation 'com.nambimobile.widgets:expandable-fab:1.1.1'
 }

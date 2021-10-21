@@ -72,18 +72,17 @@ class ScanActivity : AppCompatActivity() {
     }
 
     private fun bindPreview(cameraProvider: ProcessCameraProvider){
-        val preview: Preview = Preview.Builder().build()
-        val cameraSelector: CameraSelector = CameraSelector.Builder().requireLensFacing(
-            CameraSelector.LENS_FACING_BACK
-        ).build()
-        preview.setSurfaceProvider(scan_preview.surfaceProvider)
-        val imageAnalysis = ImageAnalysis.Builder()
-            .setTargetResolution(Size(1280, 720))
-            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-            .build()
-        imageAnalysis.setAnalyzer(cameraExecutor, analyzer)
-
-        cameraProvider.bindToLifecycle(this as LifecycleOwner, cameraSelector, imageAnalysis, preview)
+            val preview: Preview = Preview.Builder().build()
+            val cameraSelector: CameraSelector = CameraSelector.Builder().requireLensFacing(
+                CameraSelector.LENS_FACING_BACK
+            ).build()
+            preview.setSurfaceProvider(scan_preview.surfaceProvider)
+            val imageAnalysis = ImageAnalysis.Builder()
+                .setTargetResolution(Size(1280, 720))
+                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                .build()
+            imageAnalysis.setAnalyzer(cameraExecutor, analyzer)
+            cameraProvider.bindToLifecycle(this as LifecycleOwner, cameraSelector, imageAnalysis, preview)
     }
 
     private fun getUserLocation() {

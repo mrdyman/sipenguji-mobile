@@ -6,11 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.diman.sipenguji.DetailGedungActivity
+import com.diman.sipenguji.GalleryActivity
 import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
 import com.diman.sipenguji.model.DataGambar
@@ -42,9 +47,10 @@ class GambarAdapter (val gambar : MutableList<DataGambar>) : RecyclerView.Adapte
             .into(holder.ivGambarRuangan)
 
         holder.rvGambarRuangan.setOnClickListener {
-            val id = _gambar.id
+//            val id = _gambar.id
             val activity = holder.itemView.context
-            showDetailGedung(activity, id)
+//            showDetailGedung(activity, id)
+            showGallery(activity)
         }
     }
 
@@ -71,6 +77,11 @@ class GambarAdapter (val gambar : MutableList<DataGambar>) : RecyclerView.Adapte
     fun showDetailGedung(context: Context, id: String?){
         var i = Intent(context, DetailGedungActivity::class.java)
         i.putExtra("id_gedung", id)
+        context.startActivity(i)
+    }
+
+    private fun showGallery(context: Context){
+        val i = Intent(context, GalleryActivity::class.java)
         context.startActivity(i)
     }
 }

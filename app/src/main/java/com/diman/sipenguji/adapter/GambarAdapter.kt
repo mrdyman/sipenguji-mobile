@@ -39,6 +39,8 @@ class GambarAdapter (val gambar : MutableList<DataGambar>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: GambarHolder, position: Int) {
         val  _gambar = gambar[position]
 
+//        Log.d("diman-array", _gambar.nama!!)
+
         Log.d("img", _gambar.nama.toString())
 
         Glide.with(holder.itemView.context)
@@ -49,8 +51,10 @@ class GambarAdapter (val gambar : MutableList<DataGambar>) : RecyclerView.Adapte
         holder.rvGambarRuangan.setOnClickListener {
 //            val id = _gambar.id
             val activity = holder.itemView.context
+            val listGambar = _gambar.nama
+//            Log.d("diman-array", gambar)
 //            showDetailGedung(activity, id)
-            showGallery(activity)
+            showGallery(activity, listGambar!!)
         }
     }
 
@@ -80,8 +84,9 @@ class GambarAdapter (val gambar : MutableList<DataGambar>) : RecyclerView.Adapte
         context.startActivity(i)
     }
 
-    private fun showGallery(context: Context){
+    private fun showGallery(context: Context, listGambar : String){
         val i = Intent(context, GalleryActivity::class.java)
+        i.putExtra("gambar", listGambar)
         context.startActivity(i)
     }
 }

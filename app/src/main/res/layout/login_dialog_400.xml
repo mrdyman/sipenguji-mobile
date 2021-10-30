@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="25dp">
+
+            <LinearLayout
+                android:id="@+id/ll_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iv_dialog_logo"
+                    android:layout_width="195dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/wrong_password" />
+
+                <TextView
+                    android:id="@+id/tv_dialog_login_400"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="password salah.!"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="@font/neosans"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/btn_close_dialog_400"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="45dp"
+            android:elevation="20dp"
+            android:src="@drawable/btn_close" />
+
+    </RelativeLayout>
+
+</LinearLayout>

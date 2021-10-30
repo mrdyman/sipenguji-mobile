@@ -6,10 +6,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GalleryActivity">
+    android:background="#A9000000"
+    tools:context=".GalleryActivity"
+    android:orientation="vertical">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <com.diman.sipenguji.util.TouchImageView
-        android:id="@+id/iv_zoom"
+        android:id="@+id/iv_detail_gambar_ruangan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/found_routes"

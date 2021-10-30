@@ -129,12 +129,13 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_login"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:text="Login"
             app:cornerRadius="15dp"
             app:backgroundTint="@color/colorPrimaryDark"/>
 
         <TextView
+            android:id="@+id/tv_bantuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bantuan?"

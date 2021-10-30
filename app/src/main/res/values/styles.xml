@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearanceOverlay</item>
+        <item name="android:statusBarColor">#92009D</item>
     </style>
 
     <style name="Widget.MaterialComponents.Button.IconOnly">

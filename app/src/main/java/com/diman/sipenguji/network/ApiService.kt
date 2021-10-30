@@ -62,4 +62,14 @@ interface ApiService {
     //getListBanner
     @GET("api/banner")
     fun getListBanner() : Call<Banner>
+
+    //Authentication
+
+    //login
+    @FormUrlEncoded
+    @POST("api/auth/login")
+    fun login(
+        @Field("username") username : String,
+        @Field("password") password : String,
+    ) : Call<Auth>
 }

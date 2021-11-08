@@ -1,6 +1,8 @@
 package com.diman.sipenguji.network
 
 import com.diman.sipenguji.model.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -14,14 +16,14 @@ interface ApiService {
     fun getGedung(@Query("id")id: Int): Call<Gedung>
 
     // post data gedung using field x-www-form-urlencoded
-    @FormUrlEncoded
+    @Multipart
     @POST("api/gedung")
     fun createGedung(
-        @Field("nama_gedung") nama: String,
-        @Field("alamat") alamat: String,
-        @Field("jumlah_ruangan") jml_ruangan: Int,
-        @Field("latitude") lat: Float,
-        @Field("longitude") lng: Float
+        @Part("nama") nama: RequestBody,
+        @Part("alamat") alamat: RequestBody,
+        @Part gambar : MultipartBody.Part,
+        @Part("latitude") lat: RequestBody,
+        @Part("longitude") lng: RequestBody
     ): Call<Gedung>
 
     //getList Ruangan

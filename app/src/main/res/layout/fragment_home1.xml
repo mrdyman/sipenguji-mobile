@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".fragment.HomeFragment1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_top"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/top_background"/>
+
+        <TextView
+            android:id="@+id/tv_dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            android:textColor="@color/white"
+            android:fontFamily="@font/neosans"
+            android:textSize="18sp"
+            android:layout_margin="15dp"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_user"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="15dp" />
+
+        <TextView
+            android:id="@+id/tv_hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Halo,\nAdmin"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/neosans"
+            android:layout_below="@id/tv_dashboard"/>
+
+        <LinearLayout
+            android:id="@+id/ll_container_menu"
+            android:layout_below="@id/iv_top"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_show_all"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_width="80dp"
+                android:layout_height="28dp"
+                app:cardCornerRadius="15dp">
+
+                <TextView
+                    android:id="@+id/tv_mainMenu"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Main Menu"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/neosans"
+                    android:textColor="@color/colorPrimary"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_show_gedung"
+                android:layout_marginTop="15dp"
+                android:layout_width="73dp"
+                android:layout_height="28dp"
+                app:cardCornerRadius="15dp">
+
+                <TextView
+                    android:id="@+id/tv_menu_gedung"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gedung"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/neosans"
+                    android:textColor="@color/colorPrimary"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_show_ruangan"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="73dp"
+                android:layout_height="28dp"
+                app:cardCornerRadius="15dp">
+
+                <TextView
+                    android:id="@+id/tv_menu_ruangan"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ruangan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/neosans"
+                    android:textColor="@color/colorPrimary"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/grey"
+            android:layout_below="@+id/ll_container_menu"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gedung"
+            android:fontFamily="@font/neosans"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_gedung"
+                android:layout_width="match_parent"
+                android:layout_height="202dp"
+                tools:listitem="@layout/item_gedung"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ruangan"
+            android:fontFamily="@font/neosans"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_ruangan"
+                android:layout_width="match_parent"
+                android:layout_height="212dp"
+                tools:listitem="@layout/item_ruangan_list1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

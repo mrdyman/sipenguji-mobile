@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".fragment.HomeGedungFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Hello,\nAdmin"
+            android:text="Halo,\nAdmin"
             android:textSize="22sp"
             android:textColor="@color/white"
             android:fontFamily="@font/neosans"
@@ -52,8 +53,7 @@
             android:layout_height="50dp">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_show_all"
-                android:backgroundTint="@color/colorPrimary"
+                android:id="@+id/cv_home_gedung_show_all"
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
@@ -62,24 +62,26 @@
                 app:cardCornerRadius="15dp">
 
                 <TextView
+                    android:id="@+id/tv_home_gedung_mainMenu"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Main Menu"
                     android:textSize="12sp"
                     android:fontFamily="@font/neosans"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/colorPrimary"/>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_show_gedung"
+                android:id="@+id/cv_home_gedung_show_gedung"
                 android:layout_marginTop="15dp"
                 android:layout_width="73dp"
                 android:layout_height="28dp"
                 app:cardCornerRadius="15dp">
 
                 <TextView
+                    android:id="@+id/tv_home_gedung_menu_gedung"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,7 +93,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_show_ruangan"
+                android:id="@+id/cv_home_gedung_show_ruangan"
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="10dp"
                 android:layout_width="73dp"
@@ -99,6 +101,7 @@
                 app:cardCornerRadius="15dp">
 
                 <TextView
+                    android:id="@+id/tv_home_gedung_menu_ruangan"
                     android:layout_margin="5dp"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
@@ -112,6 +115,13 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/grey"
+            android:layout_below="@+id/ll_container_menu"/>
+
     </RelativeLayout>
 
     <LinearLayout
@@ -124,78 +134,21 @@
             android:layout_height="wrap_content"
             android:text="Gedung"
             android:fontFamily="@font/neosans"
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
             android:textColor="@color/black"/>
 
-        <androidx.cardview.widget.CardView
-            android:layout_margin="10dp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_gedung_home_list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_gedung_list"/>
 
-                <androidx.cardview.widget.CardView
-                    android:backgroundTint="#92009D"
-                    android:layout_margin="10dp"
-                    android:layout_width="175dp"
-                    android:layout_height="150dp"
-                    app:cardCornerRadius="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10"
-                        android:textSize="50sp"
-                        android:fontFamily="@font/neosans"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center"/>
-
-                    <TextView
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/neosans"
-                        android:layout_gravity="bottom|center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Jumlah Gedung"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"/>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:layout_margin="10dp"
-                    android:layout_width="175dp"
-                    android:layout_height="150dp"
-                    app:cardCornerRadius="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10"
-                        android:textSize="50sp"
-                        android:fontFamily="@font/neosans"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center"/>
-
-                    <TextView
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/neosans"
-                        android:layout_gravity="bottom|center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Jumlah Fakultas"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"/>
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
     </LinearLayout>
 

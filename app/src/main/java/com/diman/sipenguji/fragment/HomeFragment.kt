@@ -45,9 +45,9 @@ class HomeFragment : Fragment() {
         rv_gedung.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         rv_gedung.adapter = gedungAdapter
 
-        rv_ruangan.setHasFixedSize(true)
-        rv_ruangan.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        rv_ruangan.adapter = ruanganAdapter
+        rv_ruanganz.setHasFixedSize(true)
+        rv_ruanganz.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        rv_ruanganz.adapter = ruanganAdapter
 
         getGedung()
         getRuangan()

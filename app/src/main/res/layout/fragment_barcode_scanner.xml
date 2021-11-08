@@ -6,89 +6,105 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_marginBottom="20dp"
-        android:id="@+id/ll_container_guide"
-        android:padding="7dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_container_guide"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/shape_oval">
-
-        <ImageView
-            android:padding="5dp"
-            android:layout_marginStart="20dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/img_scan"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        app:cardCornerRadius="15dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="How to Use?"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:fontFamily="@font/helveticabold"
-                android:textSize="25sp"/>
+            <ImageView
+                android:padding="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/img_scan"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:text="Pastikan koneksi internet stabil"
-                android:fontFamily="@font/helvetica"
-                android:textColor="@color/black"
-                app:drawableStartCompat="@drawable/ic_check_circle" />
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:text="Arahkan Camera ke Barcode"
-                android:fontFamily="@font/helvetica"
-                android:textColor="@color/black"
-                app:drawableStartCompat="@drawable/ic_check_circle" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tips!"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/helveticabold"
+                    android:textSize="25sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:text="Pilih Get Direction"
-                android:fontFamily="@font/helvetica"
-                android:textColor="@color/black"
-                app:drawableStartCompat="@drawable/ic_check_circle" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:text="Pastikan koneksi internet stabil"
+                    android:fontFamily="@font/neosans"
+                    android:textColor="@color/black"
+                    app:drawableStartCompat="@drawable/ic_check_circle" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:text="Arahkan Camera ke Barcode"
+                    android:fontFamily="@font/neosans"
+                    android:textColor="@color/black"
+                    app:drawableStartCompat="@drawable/ic_check_circle" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:text="Pilih Dapatkan Rute"
+                    android:fontFamily="@font/neosans"
+                    android:textColor="@color/black"
+                    app:drawableStartCompat="@drawable/ic_check_circle" />
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:id="@+id/rl_container_scanner"
-        android:layout_below="@id/ll_container_guide"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.camera.view.PreviewView
             android:id="@+id/previewView"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"/>
 
         <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="#9F000000"/>
+
+        <ImageView
             android:id="@+id/iv_qrcode"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
             android:src="@drawable/img_frame_qrcode"
             android:layout_centerInParent="true"/>
+
+        <TextView
+            android:layout_marginBottom="50dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Powered By SIPENGUJI"
+            android:fontFamily="@font/neosans"
+            android:textSize="22sp"/>
 
     </RelativeLayout>
 

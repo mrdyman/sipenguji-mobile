@@ -8,8 +8,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import com.diman.sipenguji.fragment.AddDataFragment
 import com.diman.sipenguji.fragment.BarcodeScannerFragment
 import com.diman.sipenguji.fragment.HomeFragment
+import com.diman.sipenguji.fragment.HomeFragment1
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.facebook.stetho.Stetho
 import com.google.android.gms.location.*
@@ -38,11 +40,13 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigation.show(1, true)
         bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_home))
-        bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_qrcode))
-        bottomNavigation.add(MeowBottomNavigation.Model(3, R.drawable.ic_message))
+        bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_search))
+        bottomNavigation.add(MeowBottomNavigation.Model(3, R.drawable.ic_add_circle))
+        bottomNavigation.add(MeowBottomNavigation.Model(4, R.drawable.ic_history))
+        bottomNavigation.add(MeowBottomNavigation.Model(5, R.drawable.ic_user))
 
         val fr = supportFragmentManager.beginTransaction()
-        fr.add(R.id.fragment_container, HomeFragment())
+        fr.add(R.id.fragment_container, HomeFragment1())
         fr.commit()
 
         bottomNavigation.setOnClickMenuListener {
@@ -50,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             when(it.id){
                 1 -> {
                     Log.i("Message", "Home Selected")
-                    selectedFragment = HomeFragment()
+                    selectedFragment = HomeFragment1()
                     replaceFragment(selectedFragment)
                 }
 
@@ -61,15 +65,28 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 3 -> {
-                    Log.i("Message", "Menu Selected")
-//                    selectedFragment = HomeFragment()
+                    Log.i("Message", "Add Selected")
+                    selectedFragment = AddDataFragment()
+                    replaceFragment(selectedFragment)
+                }
+
+                4 -> {
+                    Log.i("Message", "History Selected")
+                    selectedFragment = HomeFragment1()
+                    replaceFragment(selectedFragment)
+                }
+
+                5 -> {
+                    Log.i("Message", "Settings Selected")
+                    selectedFragment = HomeFragment1()
+                    replaceFragment(selectedFragment)
                 }
 
             }
         }
     }
 
-    private fun replaceFragment(frNama: Fragment){
+    fun replaceFragment(frNama: Fragment){
         val _fragment = supportFragmentManager.beginTransaction()
         _fragment.replace(R.id.fragment_container, frNama)
         _fragment.commit()

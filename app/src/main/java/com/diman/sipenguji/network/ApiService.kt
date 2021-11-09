@@ -15,6 +15,10 @@ interface ApiService {
     @GET("api/gedung/{id}")
     fun getGedung(@Query("id")id: Int): Call<Gedung>
 
+    //get Last Added Gedung
+    @GET("api/gedung")
+    fun getLastGedung(@Query("isLimit") limit : Int) : Call<Gedung>
+
     // post data gedung using field x-www-form-urlencoded
     @Multipart
     @POST("api/gedung")
@@ -41,6 +45,10 @@ interface ApiService {
     //get Ruangan By Name
     @GET("api/ruangan")
     fun getRuanganByName(@Query("nama_ruangan")nama_gedung : String) : Call<Ruangan>
+
+    //get Last Added Ruangan
+    @GET("api/ruangan")
+    fun getLastRuangan(@Query("isLimit") limit : Int) : Call<Ruangan>
 
     //get Ruangan Detail by nisn mahasiswa
     @GET("api/ruangan/detail")

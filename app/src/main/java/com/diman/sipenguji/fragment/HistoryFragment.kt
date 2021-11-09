@@ -28,13 +28,13 @@ class HistoryFragment : Fragment() {
                     tab.text = "Gedung"
                     tab.icon = ResourcesCompat.getDrawable(
                         resources,
-                        R.drawable.ic_building,
+                        R.drawable.ic_campus,
                         null
                     )
                 }
                 1 -> {
                     tab.text = "Ruangan"
-                    tab.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_campus, null)
+                    tab.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_building, null)
                 }
             }
         }

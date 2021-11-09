@@ -5,56 +5,57 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.diman.sipenguji.R
+import com.diman.sipenguji.adapter.GedungListAdapter
+import com.diman.sipenguji.adapter.HistoryGedungAdapter
+import com.diman.sipenguji.model.DataItem
+import com.diman.sipenguji.model.Gedung
+import com.diman.sipenguji.network.ApiConfig
+import kotlinx.android.synthetic.main.fragment_add_data.*
+import kotlinx.android.synthetic.main.fragment_history_gedung.*
+import kotlinx.android.synthetic.main.fragment_home_gedung.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HistoryGedungFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HistoryGedungFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var historyGedungAdapter: HistoryGedungAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_history_gedung, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HistoryGedungFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HistoryGedungFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        historyGedungAdapter = HistoryGedungAdapter(mutableListOf())
+        rv_history_gedung_list.setHasFixedSize(true)
+        rv_history_gedung_list.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        rv_history_gedung_list.adapter = historyGedungAdapter
+
+        getGedungHistory()
+    }
+
+    private fun getGedungHistory() {
+        val client = ApiConfig.getApiService().getLastGedung(5)
+
+        client.enqueue(object : Callback<Gedung> {
+            override fun onResponse(call: Call<Gedung>, response: Response<Gedung>) {
+                if (response.isSuccessful) {
+                    val dataArray = response.body()?.data as List<DataItem>
+                    for (data in dataArray) {
+                        historyGedungAdapter.addData(data)
+                    }
                 }
             }
+
+            override fun onFailure(call: Call<Gedung>, t: Throwable) {
+                t.printStackTrace()
+            }
+
+        })
     }
 }

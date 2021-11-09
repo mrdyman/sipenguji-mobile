@@ -8,10 +8,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import com.diman.sipenguji.fragment.AddDataFragment
-import com.diman.sipenguji.fragment.BarcodeScannerFragment
-import com.diman.sipenguji.fragment.HomeFragment
-import com.diman.sipenguji.fragment.HomeFragment1
+import com.diman.sipenguji.fragment.*
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.facebook.stetho.Stetho
 import com.google.android.gms.location.*
@@ -72,13 +69,13 @@ class MainActivity : AppCompatActivity() {
 
                 4 -> {
                     Log.i("Message", "History Selected")
-                    selectedFragment = HomeFragment1()
+                    selectedFragment = HistoryFragment()
                     replaceFragment(selectedFragment)
                 }
 
                 5 -> {
                     Log.i("Message", "Settings Selected")
-                    selectedFragment = HomeFragment1()
+                    selectedFragment = SettingsFragment()
                     replaceFragment(selectedFragment)
                 }
 

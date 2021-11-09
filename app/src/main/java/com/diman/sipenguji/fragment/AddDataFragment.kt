@@ -24,6 +24,7 @@ import com.diman.sipenguji.BuildConfig
 import com.diman.sipenguji.R
 import com.diman.sipenguji.model.DataItem
 import com.diman.sipenguji.model.Gedung
+import com.diman.sipenguji.model.Ruangan
 import com.diman.sipenguji.network.ApiConfig
 import com.diman.sipenguji.network.UploadRequestBody
 import com.diman.sipenguji.util.getFileName
@@ -49,6 +50,7 @@ import java.io.FileOutputStream
 class AddDataFragment : Fragment(), UploadRequestBody.UploadCallback {
 
     private var selectedImage: Uri? = null
+    private var idGedung : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -181,8 +183,9 @@ class AddDataFragment : Fragment(), UploadRequestBody.UploadCallback {
                     val tvAlamat = tv_alamatRuangan
                     tvAlamat.setAdapter(adapter)
                     tvAlamat.setOnItemClickListener { parent, view, position, id ->
-                        val idGedung = dataId[position]
-                        Log.d("GedungPosition", idGedung.toString())
+                        val selectedId = dataId[position]
+                        idGedung = selectedId.toString()
+                        Log.d("GedungPosition", selectedId.toString())
                     }
                 } else {
                     add_data_root.snackbar(response.message())
@@ -227,7 +230,11 @@ class AddDataFragment : Fragment(), UploadRequestBody.UploadCallback {
 
         client.enqueue(object : Callback<Gedung> {
             override fun onResponse(call: Call<Gedung>, response: Response<Gedung>) {
-                add_data_root.snackbar("Data gedung berhasil ditambahkan")
+                if (response.isSuccessful){
+                    add_data_root.snackbar("Data gedung berhasil ditambahkan")
+                } else {
+                    add_data_root.snackbar(response.message())
+                }
             }
 
             override fun onFailure(call: Call<Gedung>, t: Throwable) {
@@ -239,43 +246,29 @@ class AddDataFragment : Fragment(), UploadRequestBody.UploadCallback {
 
     private fun addNewDataRuangan(){
         val namaRuangan = et_nama_ruangan.text.toString().trim()
-        val alamatRuangan = tv_alamatRuangan.text.toString().trim()
+        val alamatRuangan = idGedung.toInt()
         val jumlahPeserta = et_jumlah_peserta.text.toString().trim()
         val latitude = et_latitude.text.toString().trim()
         val longitude = et_longitude.text.toString().trim()
-        if (selectedImage == null) {
-            //image not selected yet
-            add_data_root.snackbar("Mohon pilih gambar ruangan")
-            return
-        }
 
-        val parcelFileDescriptor =
-            activity?.contentResolver?.openFileDescriptor(selectedImage!!, "r", null) ?: return
-        val inputStream = FileInputStream(parcelFileDescriptor.fileDescriptor)
-        val file = File(
-            requireActivity().cacheDir,
-            requireActivity().contentResolver.getFileName(selectedImage!!)
+        val client = ApiConfig.getApiService().createRuangan(
+            namaRuangan,
+            jumlahPeserta.toInt(),
+            latitude,
+            longitude,
+            alamatRuangan
         )
-        val outputStream = FileOutputStream(file)
-        inputStream.copyTo(outputStream)
-
-        val body = UploadRequestBody(file, "image", this)
-
-        val client = ApiConfig.getApiService().(
-            namaGedung.toRequestBody("multipart/form-data".toMediaTypeOrNull()),
-            alamatGedung.toRequestBody("multipart/form-data".toMediaTypeOrNull()),
-            MultipartBody.Part.createFormData("img", file.name, body),
-            "Latitude".toRequestBody("multipart/form-data".toMediaTypeOrNull()),
-            "Longitude".toRequestBody("multipart/form-data".toMediaTypeOrNull())
-        )
-
-        client.enqueue(object : Callback<Gedung> {
-            override fun onResponse(call: Call<Gedung>, response: Response<Gedung>) {
-                add_data_root.snackbar("Data gedung berhasil ditambahkan")
+        client.enqueue(object : Callback<Ruangan>{
+            override fun onResponse(call: Call<Ruangan>, response: Response<Ruangan>) {
+                if (response.isSuccessful){
+                    add_data_root.snackbar(response.body()?.status.toString())
+                } else {
+                    add_data_root.snackbar(response.message())
+                }
             }
 
-            override fun onFailure(call: Call<Gedung>, t: Throwable) {
-                add_data_root.snackbar(t.message.toString())
+            override fun onFailure(call: Call<Ruangan>, t: Throwable) {
+                add_data_root.snackbar(t.printStackTrace().toString())
             }
 
         })

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.SettingsFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/neosans"
+        android:text="Settings"
+        android:textColor="#D5000000"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_margin="17dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iv_profile_pict"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="7dp"
+            android:src="@drawable/ic_user" />
+
+        <TextView
+            android:id="@+id/tv_profile_fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/iv_profile_pict"
+            android:fontFamily="@font/neosans"
+            android:gravity="center_vertical"
+            android:text="Andi Mardiman Saputra"
+            android:textColor="#D5000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_profile_fullName"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/iv_profile_pict"
+            android:fontFamily="@font/neosans"
+            android:gravity="center_vertical"
+            android:text="Edit profile detail"
+            android:textColor="#B4000000" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow_forward" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:fontFamily="@font/neosans"
+        android:text="Profile"
+        android:textColor="#BA000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="17dp"
+            android:src="@drawable/img_key" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="35dp"
+            android:fontFamily="@font/neosans"
+            android:gravity="center_vertical"
+            android:text="Change Password"
+            android:textColor="#D5000000" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:fontFamily="@font/neosans"
+        android:text="Account"
+        android:textColor="#BA000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="17dp"
+            android:src="@drawable/img_logout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="45dp"
+            android:fontFamily="@font/neosans"
+            android:gravity="center_vertical"
+            android:text="Logout"
+            android:textColor="#D5000000" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginBottom="5dp"
+        android:gravity="bottom|center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="App Version 1.0.0"/>
+
+</LinearLayout>

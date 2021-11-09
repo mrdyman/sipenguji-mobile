@@ -46,6 +46,17 @@ interface ApiService {
     @GET("api/ruangan/detail")
     fun getRuanganByNisn(@Query("nisn")nisn : String) : Call<RuanganDetail>
 
+    //create data ruangan
+    @FormUrlEncoded
+    @POST("api/ruangan")
+    fun createRuangan(
+        @Field("nama_ruangan") namaRuangan : String,
+        @Field("jumlah_peserta") jumlahPeserta : Int,
+        @Field("latitude") latitude : String,
+        @Field("longitude") longitude : String,
+        @Field("id_gedung") idGedung : Int
+    ) : Call<Ruangan>
+
     //get Gambar Ruangan by Id Ruangan
     @GET("api/gambar")
     fun getGambar(@Query("id_ruangan")id_ruangan : Int) : Call<GambarRuangan>

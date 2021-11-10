@@ -65,6 +65,10 @@ interface ApiService {
         @Field("id_gedung") idGedung : Int
     ) : Call<Ruangan>
 
+    //delete data ruangan
+    @DELETE("api/ruangan/{id}")
+    fun deleteRuangan(@Path("id") id : Int) : Call<Ruangan>
+
     //get Gambar Ruangan by Id Ruangan
     @GET("api/gambar")
     fun getGambar(@Query("id_ruangan")id_ruangan : Int) : Call<GambarRuangan>

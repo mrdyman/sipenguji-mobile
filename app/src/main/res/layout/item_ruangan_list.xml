@@ -223,9 +223,9 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 app:borderWidth="0dp"
-                android:layout_toStartOf="@+id/btn_home_gedung_delete"
+                android:layout_toStartOf="@+id/btn_home_ruangan_delete"
                 android:layout_below="@+id/tv_hari_tgl_home_list"
-                android:id="@+id/btn_home_gedung_edit"
+                android:id="@+id/btn_home_ruangan_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -238,7 +238,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/tv_hari_tgl_home_list"
                 app:borderWidth="0dp"
-                android:id="@+id/btn_home_gedung_delete"
+                android:id="@+id/btn_home_ruangan_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

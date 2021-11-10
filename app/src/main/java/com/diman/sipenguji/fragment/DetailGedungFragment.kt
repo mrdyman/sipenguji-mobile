@@ -17,6 +17,7 @@ import com.diman.sipenguji.adapter.RuanganAdapter
 import com.diman.sipenguji.adapter.RuanganListAdapter
 import com.diman.sipenguji.model.DataRuangan
 import com.diman.sipenguji.model.Gedung
+import com.diman.sipenguji.model.GedungDetail
 import com.diman.sipenguji.model.Ruangan
 import com.diman.sipenguji.network.ApiConfig
 import com.skyfishjy.library.RippleBackground
@@ -58,18 +59,17 @@ class DetailGedungFragment : Fragment() {
     fun displayDataGedung(){
         val id = activity?.intent?.getStringExtra("id_gedung")!!.toInt()
         idGedung = id
-        val client = ApiConfig.getApiService().getGedung(id)
-        client.enqueue(object : Callback<Gedung>{
-            override fun onResponse(call: Call<Gedung>, response: Response<Gedung>) {
+        val client = ApiConfig.getApiService().getGedung(idGedung!!)
+        client.enqueue(object : Callback<GedungDetail>{
+            override fun onResponse(call: Call<GedungDetail>, response: Response<GedungDetail>) {
                 if(response.isSuccessful){
-                    Log.d("Response", "Connected To API")
-                    val data = response.body()?.data?.get(0)
+                    Log.d("Response", "Connected To API Detail Gedung")
+                    val data = response.body()?.data
 
                     val namaGedung = data?.namaGedung
+                    val alamat = data?.alamat
                     val gambar = data?.gambar
                     val jumlahRuangan = data?.jumlahRuangan
-                    val latitude = data?.latitude
-                    val longitude = data?.longitude
 
                     Glide.with(requireActivity())
                         .load("https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
@@ -77,14 +77,15 @@ class DetailGedungFragment : Fragment() {
                         .into(iv_image_gedung)
 
                     tv_nama_gedung.text = namaGedung
-                    tv_jumlah_ruangan.text = jumlahRuangan
-                    tv_latitude.text = latitude
-                    tv_longitude.text = longitude
+                    tv_alamat.text = alamat
+                    tv_jumlah_ruangan.text = jumlahRuangan.toString()
+                } else {
+                    Log.d("Response", "Connecting to API Detail Gedung Unsuccessful with message ${response.message()}")
                 }
             }
 
-            override fun onFailure(call: Call<Gedung>, t: Throwable) {
-                Log.d("Response", "Failed to connect API with message ${t.printStackTrace()}")
+            override fun onFailure(call: Call<GedungDetail>, t: Throwable) {
+                Log.d("Response", "Failed to connect API Detail Gedung with message ${t.message}")
             }
 
         })

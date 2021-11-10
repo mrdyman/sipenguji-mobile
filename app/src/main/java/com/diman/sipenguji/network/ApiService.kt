@@ -12,8 +12,8 @@ interface ApiService {
     fun getListGedung(): Call<Gedung>
 
     // get data gedung by Id
-    @GET("api/gedung/{id}")
-    fun getGedung(@Query("id")id: Int): Call<Gedung>
+    @GET("api/gedung")
+    fun getGedung(@Query("id") id: Int): Call<GedungDetail>
 
     //get Last Added Gedung
     @GET("api/gedung")

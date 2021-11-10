@@ -19,7 +19,7 @@
             android:layout_height="30dp"
             android:layout_margin="10dp"
             app:icon="@drawable/ic_arrow_back"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/colorPrimaryDark"
             style="@style/Widget.MaterialComponents.Button.IconOnly"/>
 
     </LinearLayout>
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/banner_img" />
+            android:src="@drawable/img" />
 
     </LinearLayout>
 
@@ -56,7 +56,8 @@
                 android:id="@+id/iv_logo_gedung"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/banner_img" />
+                android:src="@drawable/img"
+                android:scaleType="fitXY"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -77,10 +78,11 @@
             android:layout_height="wrap_content"
             android:text="LABORATORIUM TEKNIK INFORMATIKA"
             android:textColor="@color/black"
-            android:fontFamily="@font/helveticaroundedbold"
+            android:fontFamily="@font/neosans"
             android:textStyle="bold" />
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -94,26 +96,44 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jumlah Ruangan"
-                    android:fontFamily="@font/helveticabold"/>
+                    android:textColor="#C8000000"
+                    android:fontFamily="@font/neosans"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Latitude"
-                    android:fontFamily="@font/helveticabold"/>
+                    android:text="Alamat"
+                    android:textColor="#C8000000"
+                    android:fontFamily="@font/neosans"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="5dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <TextView
+                    android:textColor="#C8000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Longitude"
-                    android:fontFamily="@font/helveticabold"/>
+                    android:fontFamily="@font/neosans"
+                    android:text=":"/>
+
+                <TextView
+                    android:textColor="#C8000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/neosans"
+                    android:text=":"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -121,21 +141,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
-                    android:fontFamily="@font/helvetica"/>
+                    android:textColor="#C8000000"
+                    android:fontFamily="@font/neosans"/>
 
                 <TextView
-                    android:id="@+id/tv_latitude"
+                    android:id="@+id/tv_alamat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="-1222.32321"
-                    android:fontFamily="@font/helvetica"/>
-
-                <TextView
-                    android:id="@+id/tv_longitude"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="119.123894"
-                    android:fontFamily="@font/helvetica"/>
+                    android:text="Universitas Tadulako"
+                    android:fontFamily="@font/neosans"
+                    android:textColor="#C8000000"/>
 
             </LinearLayout>
 
@@ -152,6 +167,7 @@
         android:background="@color/grey" />
 
     <TextView
+        android:layout_marginBottom="5dp"
         android:id="@+id/tv_data_ruangan_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -160,7 +176,7 @@
         android:gravity="center"
         android:text="DATA RUANGAN"
         android:textColor="@color/black"
-        android:fontFamily="@font/helveticabold"
+        android:fontFamily="@font/neosans"
         android:textStyle="bold" />
 
     <ImageView

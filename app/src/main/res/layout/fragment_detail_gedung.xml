@@ -190,7 +190,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/btn_get_routes"
-        android:layout_below="@+id/tv_data_ruangan_title">
+        android:layout_below="@+id/tv_data_ruangan_title"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/container_ruangan_404"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:src="@drawable/img_not_found_robot"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_ruangan_list"

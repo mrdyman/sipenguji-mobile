@@ -19,11 +19,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.diman.sipenguji.DetailRuanganActivity
 import com.diman.sipenguji.R
+import com.diman.sipenguji.fragment.DetailGedungFragment
 import com.diman.sipenguji.model.DataRuangan
 import com.diman.sipenguji.model.Ruangan
 import com.diman.sipenguji.network.ApiConfig
 import kotlinx.android.synthetic.main.dialog_delete_ruangan.*
 import kotlinx.android.synthetic.main.dialog_delete_ruangan.btn_close_dialog_deleteRuangan
+import kotlinx.android.synthetic.main.dialog_failed.*
 import kotlinx.android.synthetic.main.dialog_ruangan_deleted.*
 import kotlinx.android.synthetic.main.dialog_upload_image.*
 import kotlinx.android.synthetic.main.dialog_upload_image.btn_close_dialog_uploadImage
@@ -50,7 +52,7 @@ class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>) : Recycler
         holder.btnDelete.setOnClickListener {
             val id = _ruanganList.id
             val context = holder.itemView.context
-            showDialogDelete(id!!.toInt(), context)
+            showDialogDelete(id!!.toInt(), context, position)
         }
 
         holder.rvRuangan.setOnClickListener {
@@ -85,7 +87,7 @@ class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>) : Recycler
         context.startActivity(i)
     }
 
-    private fun showDialogDelete(id: Int, context: Context){
+    private fun showDialogDelete(id: Int, context: Context, position: Int){
         val builder = AlertDialog.Builder(context)
         builder.setView(R.layout.dialog_delete_ruangan)
 
@@ -96,13 +98,22 @@ class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>) : Recycler
 
         dialog.btn_dialog_deleteRuangan.setOnClickListener {
             val client = ApiConfig.getApiService().deleteRuangan(id)
+            Log.d("Response", id.toString())
             client.enqueue(object : Callback<Ruangan>{
                 override fun onResponse(call: Call<Ruangan>, response: Response<Ruangan>) {
                     if (response.isSuccessful){
                         Log.d("Response", "Connection to API delete Ruangan successful with message ${response.body()?.status}")
+
+                        ruanganList.removeAt(position)
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(0, ruanganList.size)
+
                         showSuccessDialog(context)
+                        dialog.dismiss()
                     } else {
                         Log.d("Response", "Connection to API delete Ruangan Unsuccessful with message ${response.message()}")
+                        showFailedDialog(context)
+                        dialog.dismiss()
                     }
                 }
 
@@ -136,6 +147,24 @@ class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>) : Recycler
         }
 
         dialog.btn_dialog_ok.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    private fun showFailedDialog(context: Context){
+        val builder = AlertDialog.Builder(context)
+        builder.setView(R.layout.dialog_failed)
+
+        val dialog: AlertDialog = builder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+        dialog.show()
+
+        dialog.btn_close_dialog_failed.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.btn_dialog_tutup.setOnClickListener {
             dialog.dismiss()
         }
     }

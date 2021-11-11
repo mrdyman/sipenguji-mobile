@@ -103,6 +103,7 @@ class DetailGedungFragment : Fragment() {
                         ruanganListAdapter.addDataRuanganList(data)
                     }
                 } else {
+                    showEmptyData()
                     Log.d("Response", "Failed connect to API Endpoint Ruangan")
                 }
             }
@@ -114,4 +115,7 @@ class DetailGedungFragment : Fragment() {
         })
     }
 
+    private fun showEmptyData(){
+        container_ruangan_404.visibility = View.VISIBLE
+    }
 }

@@ -66,8 +66,9 @@ interface ApiService {
     ) : Call<Ruangan>
 
     //delete data ruangan
-    @DELETE("api/ruangan/{id}")
-    fun deleteRuangan(@Path("id") id : Int) : Call<Ruangan>
+    @FormUrlEncoded
+    @HTTP(method = "DELETE", path = "api/ruangan/{id}", hasBody = true)
+    fun deleteRuangan(@Field("id") id: Int) : Call<Ruangan>
 
     //get Gambar Ruangan by Id Ruangan
     @GET("api/gambar")

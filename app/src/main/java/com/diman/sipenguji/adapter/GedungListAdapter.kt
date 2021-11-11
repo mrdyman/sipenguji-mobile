@@ -7,18 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.diman.sipenguji.DetailGedungActivity
 import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
+import com.diman.sipenguji.fragment.EditGedungFragment
+import com.diman.sipenguji.fragment.HomeGedungFragment
 import com.diman.sipenguji.model.DataItem
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.item_gedung.view.*
 import kotlinx.android.synthetic.main.item_gedung_list.view.*
 
-class GedungListAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adapter<GedungListAdapter.GedungListHolder>() {
+class GedungListAdapter (val gedung : MutableList<DataItem>, val fragmentManager: FragmentManager) : RecyclerView.Adapter<GedungListAdapter.GedungListHolder>() {
 
     //fungsi untuk menampilkan recyclerView saat dijalankan
     //fungsi ini mengambil referensi layout item yang akan ditampilkan
@@ -51,6 +54,8 @@ class GedungListAdapter (val gedung : MutableList<DataItem>) : RecyclerView.Adap
 
         holder.btnEdit.setOnClickListener {
             //button edit clicked
+            val a = EditGedungFragment(_gedung.id!!.toInt())
+            a.show(fragmentManager, "")
         }
 
         holder.btnDelete.setOnClickListener {

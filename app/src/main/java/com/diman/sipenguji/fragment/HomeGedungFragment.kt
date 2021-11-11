@@ -30,7 +30,7 @@ class HomeGedungFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        gedungListAdapter = GedungListAdapter(mutableListOf())
+        gedungListAdapter = GedungListAdapter(mutableListOf(), requireActivity().supportFragmentManager)
 
         rv_gedung_home_list.setHasFixedSize(true)
         rv_gedung_home_list.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)

@@ -1,7 +1,10 @@
 package com.diman.sipenguji.adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +20,19 @@ import com.diman.sipenguji.R
 import com.diman.sipenguji.fragment.EditGedungFragment
 import com.diman.sipenguji.fragment.HomeGedungFragment
 import com.diman.sipenguji.model.DataItem
+import com.diman.sipenguji.model.DataRuangan
+import com.diman.sipenguji.model.Gedung
+import com.diman.sipenguji.model.Ruangan
+import com.diman.sipenguji.network.ApiConfig
+import kotlinx.android.synthetic.main.dialog_delete_ruangan.*
+import kotlinx.android.synthetic.main.dialog_failed.*
+import kotlinx.android.synthetic.main.dialog_ruangan_deleted.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.item_gedung.view.*
 import kotlinx.android.synthetic.main.item_gedung_list.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class GedungListAdapter (val gedung : MutableList<DataItem>, val fragmentManager: FragmentManager) : RecyclerView.Adapter<GedungListAdapter.GedungListHolder>() {
 
@@ -60,6 +73,9 @@ class GedungListAdapter (val gedung : MutableList<DataItem>, val fragmentManager
 
         holder.btnDelete.setOnClickListener {
             //button delete clicked
+            val id = _gedung.id
+            val context = holder.itemView.context
+            showDialogDelete(id!!.toInt(), context, position)
         }
     }
 
@@ -90,5 +106,87 @@ class GedungListAdapter (val gedung : MutableList<DataItem>, val fragmentManager
         var i = Intent(context, DetailGedungActivity::class.java)
         i.putExtra("id_gedung", id)
         context.startActivity(i)
+    }
+
+    private fun showDialogDelete(id: Int, context: Context, position: Int){
+        val builder = AlertDialog.Builder(context)
+        builder.setView(R.layout.dialog_delete_ruangan)
+
+        val dialog: AlertDialog = builder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+        dialog.show()
+
+        dialog.btn_dialog_deleteRuangan.setOnClickListener {
+            val client = ApiConfig.getApiService().deleteGedung(id)
+            Log.d("Response", id.toString())
+            client.enqueue(object : Callback<Gedung> {
+                override fun onResponse(call: Call<Gedung>, response: Response<Gedung>) {
+                    if (response.isSuccessful){
+                        Log.d("Response", "Connection to API delete Ruangan successful with message ${response.body()?.status}")
+
+                        gedung.removeAt(position)
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(0, gedung.size)
+
+                        showSuccessDialog(context)
+                        dialog.dismiss()
+                    } else {
+                        Log.d("Response", "Connection to API delete Ruangan Unsuccessful with message ${response.message()}")
+                        showFailedDialog(context)
+                        dialog.dismiss()
+                    }
+                }
+
+                override fun onFailure(call: Call<Gedung>, t: Throwable) {
+                    Log.d("Response", "Connection to API delete Ruangan Failed with message ${t.message}")
+                }
+
+            })
+        }
+
+        dialog.btn_dialog_cancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.btn_close_dialog_deleteRuangan.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    private fun showSuccessDialog(context: Context){
+        val builder = AlertDialog.Builder(context)
+        builder.setView(R.layout.dialog_ruangan_deleted)
+
+        val dialog: AlertDialog = builder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+        dialog.show()
+
+        dialog.btn_close_dialog_deletedRuangan.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.btn_dialog_ok.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    private fun showFailedDialog(context: Context){
+        val builder = AlertDialog.Builder(context)
+        builder.setView(R.layout.dialog_failed)
+
+        val dialog: AlertDialog = builder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+        dialog.show()
+
+        dialog.btn_close_dialog_failed.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.btn_dialog_tutup.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 }

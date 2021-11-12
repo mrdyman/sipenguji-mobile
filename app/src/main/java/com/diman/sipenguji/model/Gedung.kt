@@ -20,7 +20,7 @@ data class DataItem(
 	val jumlahRuangan: String? = null,
 
 	@field:SerializedName("id")
-	val id: String? = null,
+	var id: String? = null,
 
 	@field:SerializedName("nama_gedung")
 	val namaGedung: String? = null,

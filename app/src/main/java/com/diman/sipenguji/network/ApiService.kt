@@ -42,6 +42,11 @@ interface ApiService {
         @Part("longitude") lng: RequestBody
     ) : Call<Gedung>
 
+    //delete data gedung
+    @FormUrlEncoded
+    @HTTP(method = "DELETE", path = "api/gedung/{id}", hasBody = true)
+    fun deleteGedung(@Field("id") id: Int) : Call<Gedung>
+
     //getList Ruangan
     @GET("api/ruangan")
     fun getListRuangan() : Call<Ruangan>
@@ -77,6 +82,7 @@ interface ApiService {
         @Field("id_gedung") idGedung : Int
     ) : Call<Ruangan>
 
+    //update data ruangan
     @PUT("api/ruangan/")
     fun updateRuangan(@Body data : DataRuangan) : Call<Ruangan>
 

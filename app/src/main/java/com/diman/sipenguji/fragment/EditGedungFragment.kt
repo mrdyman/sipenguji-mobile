@@ -135,7 +135,7 @@ class EditGedungFragment (private val idGedung: Int) : BottomSheetDialogFragment
 
         dialog.tv_message_dialog.text = "Data berhasil diupdate"
 
-        dialog.btn_close_dialog_deleteRuangan.setOnClickListener {
+        dialog.btn_close_dialog_deletedRuangan.setOnClickListener {
             dialog.dismiss()
         }
 

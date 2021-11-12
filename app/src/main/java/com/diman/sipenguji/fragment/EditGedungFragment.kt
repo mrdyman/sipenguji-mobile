@@ -1,6 +1,7 @@
 package com.diman.sipenguji.fragment
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -35,6 +36,10 @@ import com.diman.sipenguji.util.snackbar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottom_sheet_scan.*
+import kotlinx.android.synthetic.main.dialog_delete_ruangan.*
+import kotlinx.android.synthetic.main.dialog_delete_ruangan.btn_close_dialog_deleteRuangan
+import kotlinx.android.synthetic.main.dialog_failed.*
+import kotlinx.android.synthetic.main.dialog_ruangan_deleted.*
 import kotlinx.android.synthetic.main.dialog_upload_image.*
 import kotlinx.android.synthetic.main.fragment_add_data.*
 import kotlinx.android.synthetic.main.fragment_edit_gedung.*
@@ -106,17 +111,55 @@ class EditGedungFragment (private val idGedung: Int) : BottomSheetDialogFragment
             client.enqueue(object : Callback<Gedung> {
                 override fun onResponse(call: Call<Gedung>, response: Response<Gedung>) {
                     if (response.isSuccessful){
-                        edit_gedung_root.snackbar("Data gedung berhasil diupdate")
+                        showSuccessDialog(activity!!)
                     } else {
-                        edit_gedung_root.snackbar(response.message())
+                        showFailedDialog(activity!!)
                     }
                 }
 
                 override fun onFailure(call: Call<Gedung>, t: Throwable) {
-                    edit_gedung_root.snackbar(t.message.toString())
+                    showFailedDialog(activity!!)
                 }
 
             })
+    }
+
+    private fun showSuccessDialog(context: Context){
+        val builder = AlertDialog.Builder(context)
+        builder.setView(R.layout.dialog_ruangan_deleted)
+
+        val dialog: AlertDialog = builder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+        dialog.show()
+
+        dialog.tv_message_dialog.text = "Data berhasil diupdate"
+
+        dialog.btn_close_dialog_deleteRuangan.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.btn_dialog_ok.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    private fun showFailedDialog(context: Context){
+        val builder = AlertDialog.Builder(context)
+        builder.setView(R.layout.dialog_failed)
+
+        val dialog: AlertDialog = builder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+        dialog.show()
+
+        dialog.btn_close_dialog_failed.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.btn_dialog_tutup.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 
     private fun uploadImageHandler() {

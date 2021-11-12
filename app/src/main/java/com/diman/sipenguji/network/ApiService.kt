@@ -30,6 +30,18 @@ interface ApiService {
         @Part("longitude") lng: RequestBody
     ): Call<Gedung>
 
+    //update data gedung
+    @Multipart
+    @POST("api/gedung")
+    fun updateGedung(
+        @Part("id") id: RequestBody,
+        @Part("nama") nama: RequestBody,
+        @Part("alamat") alamat: RequestBody,
+        @Part gambar : MultipartBody.Part,
+        @Part("latitude") lat: RequestBody,
+        @Part("longitude") lng: RequestBody
+    ) : Call<Gedung>
+
     //getList Ruangan
     @GET("api/ruangan")
     fun getListRuangan() : Call<Ruangan>

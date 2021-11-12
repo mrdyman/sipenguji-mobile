@@ -74,11 +74,11 @@ class EditGedungFragment (private val idGedung: Int) : BottomSheetDialogFragment
     private fun viewListener() {
         uploadImageHandler()
         btn_update_gedung.setOnClickListener {
-            updateDataListener()
+            updateDataGedung()
         }
     }
 
-    private fun updateDataListener() {
+    private fun updateDataGedung() {
             val namaGedung = et_nama_gedung_edit.text.toString().trim()
             val alamatGedung = et_alamat_gedung_edit.text.toString().trim()
             if (selectedImage == null) {

@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".fragment.EditGedungFragment"
-    android:id="@+id/edit_gedung_root">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.EditRuanganFragment">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,21 +38,21 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/neosans"
             android:gravity="center_horizontal"
-            android:text="Edit data gedung"
+            android:text="Edit data ruangan"
             android:textColor="#C4000000"
             android:textSize="18sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_form_gedung_edit_root"
+        android:id="@+id/ll_form_ruangan_edit_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="visible">
 
         <RelativeLayout
-            android:id="@+id/rl_nama_gedung_edit_container"
+            android:id="@+id/rl_nama_ruangan_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -62,13 +62,13 @@
 
 
             <EditText
-                android:id="@+id/et_nama_gedung_edit"
+                android:id="@+id/et_nama_ruangan_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/ic_nama_gedung_edit"
+                android:layout_toEndOf="@+id/ic_nama_ruangan"
                 android:background="#00FFFFFF"
                 android:fontFamily="@font/neosans"
-                android:hint="Nama Gedung"
+                android:hint="Nama Ruangan"
                 android:inputType="text"
                 android:maxLength="25"
                 android:maxLines="1"
@@ -79,7 +79,7 @@
                 android:textSize="15sp" />
 
             <ImageView
-                android:id="@+id/ic_nama_gedung_edit"
+                android:id="@+id/ic_nama_ruangan"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
@@ -88,26 +88,47 @@
 
         </RelativeLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/select_alamat"
+            android:layout_width="match_parent"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="55dp"
+            android:hint="Alamat Ruangan"
+            app:startIconDrawable="@drawable/ic_location"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/tv_alamatRuangan_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:text="Fatek" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <RelativeLayout
-            android:id="@+id/rl_alamat_gedung_edit_container"
+            android:id="@+id/rl_jumlah_peserta_ruangan_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/blue_border_round_corner">
 
 
             <EditText
-                android:id="@+id/et_alamat_gedung_edit"
+                android:id="@+id/et_jumlah_peserta_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/ic_alamat_gedung"
+                android:layout_toEndOf="@+id/ic_jumlah_peserta"
                 android:background="#00FFFFFF"
                 android:fontFamily="@font/neosans"
-                android:hint="Alamat"
-                android:inputType="text"
+                android:hint="Jumlah Peserta"
+                android:inputType="number"
                 android:maxLength="25"
                 android:maxLines="3"
                 android:paddingStart="17dp"
@@ -117,71 +138,109 @@
                 android:textSize="15sp" />
 
             <ImageView
-                android:id="@+id/ic_alamat_gedung"
+                android:id="@+id/ic_jumlah_peserta"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="17dp"
-                android:src="@drawable/ic_location" />
+                android:src="@drawable/ic_user" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_latitude_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/blue_border_round_corner">
+
+
+            <EditText
+                android:id="@+id/et_latitude_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/ic_latitude"
+                android:background="#00FFFFFF"
+                android:fontFamily="@font/neosans"
+                android:hint="Latitude"
+                android:inputType="text"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:paddingStart="17dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/ic_latitude"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="17dp"
+                android:src="@drawable/ic_pin_drop" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_longitude_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/blue_border_round_corner">
+
+
+            <EditText
+                android:id="@+id/et_longitude_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/ic_longitude"
+                android:background="#00FFFFFF"
+                android:fontFamily="@font/neosans"
+                android:hint="Longitude"
+                android:inputType="text"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:paddingStart="17dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/ic_longitude"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="17dp"
+                android:src="@drawable/ic_pin_drop" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/iv_upload_pict_gedung_edit"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/img_placeholder" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_placeholderHint_gedung_edit"
-                app:cardBackgroundColor="#51000000"
-                app:cardCornerRadius="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="110dp"
-                android:layout_marginTop="-30dp"
-                android:layout_marginEnd="110dp">
-
-                <TextView
-                    app:drawableStartCompat="@drawable/ic_camera"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="1dp"
-                    android:gravity="center_vertical"
-                    android:text="Pilih Gambar"
-                    android:textColor="@color/white" />
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="50dp"
             android:gravity="center_horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_update_gedung"
+                android:id="@+id/btn_update_ruangan"
                 app:backgroundTint="@color/colorPrimaryDark"
                 app:cornerRadius="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                app:icon="@drawable/ic_edit"
-                app:iconGravity="textStart"
                 android:fontFamily="@font/neosans"
                 android:text="Update"
+                app:iconTint="@color/white"
+                app:icon="@drawable/ic_edit"
+                app:iconGravity="textStart"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 

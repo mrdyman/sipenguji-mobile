@@ -41,7 +41,7 @@ class DetailGedungFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ruanganListAdapter = RuanganListAdapter(mutableListOf())
+        ruanganListAdapter = RuanganListAdapter(mutableListOf(), requireActivity().supportFragmentManager)
 
         rv_ruangan_list.setHasFixedSize(true)
         rv_ruangan_list.layoutManager = LinearLayoutManager(activity)

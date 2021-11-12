@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -20,6 +21,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.diman.sipenguji.DetailRuanganActivity
 import com.diman.sipenguji.R
 import com.diman.sipenguji.fragment.DetailGedungFragment
+import com.diman.sipenguji.fragment.EditGedungFragment
+import com.diman.sipenguji.fragment.EditRuanganFragment
 import com.diman.sipenguji.model.DataRuangan
 import com.diman.sipenguji.model.Ruangan
 import com.diman.sipenguji.network.ApiConfig
@@ -35,7 +38,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>) : RecyclerView.Adapter<RuanganListAdapter.RuanganListHolder>() {
+class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>, val fragmentManager: FragmentManager) : RecyclerView.Adapter<RuanganListAdapter.RuanganListHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RuanganListHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_ruangan_list, parent, false)
@@ -48,6 +51,11 @@ class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>) : Recycler
         holder.namaRuangan.text = _ruanganList.namaRuangan
         holder.jadwalHari.text = _ruanganList.jadwal
         holder.jumlahPeserta.text = _ruanganList.jumlahPeserta
+
+        holder.btnEdit.setOnClickListener {
+            val editRuangan = EditRuanganFragment(_ruanganList.id!!.toInt())
+            editRuangan.show(fragmentManager, "")
+        }
 
         holder.btnDelete.setOnClickListener {
             val id = _ruanganList.id

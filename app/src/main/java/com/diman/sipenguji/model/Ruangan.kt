@@ -17,22 +17,22 @@ data class DataRuangan(
 	val jadwal: String? = null,
 
 	@field:SerializedName("jumlah_peserta")
-	val jumlahPeserta: String? = null,
+	var jumlahPeserta: String? = null,
 
 	@field:SerializedName("nomor_peserta")
 	val nomorPeserta: String? = null,
 
 	@field:SerializedName("id_gedung")
-	val idGedung: String? = null,
+	var idGedung: String? = null,
 
 	@field:SerializedName("latitude")
-	val latitude: String? = null,
+	var latitude: String? = null,
 
 	@field:SerializedName("id")
-	val id: String? = null,
+	var id: String? = null,
 
 	@field:SerializedName("nama_ruangan")
-	val namaRuangan: String? = null,
+	var namaRuangan: String? = null,
 
 	@field:SerializedName("gambar")
 	val gambar: String? = null,
@@ -44,5 +44,5 @@ data class DataRuangan(
 	val alamat: String? = null,
 
 	@field:SerializedName("longitude")
-	val longitude: String? = null
+	var longitude: String? = null
 )

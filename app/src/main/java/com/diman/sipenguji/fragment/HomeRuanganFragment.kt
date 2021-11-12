@@ -33,7 +33,7 @@ class HomeRuanganFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ruanganListAdapter = RuanganListAdapter(mutableListOf())
+        ruanganListAdapter = RuanganListAdapter(mutableListOf(), requireActivity().supportFragmentManager)
 
         rv_ruangan_home_list.setHasFixedSize(true)
         rv_ruangan_home_list.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)

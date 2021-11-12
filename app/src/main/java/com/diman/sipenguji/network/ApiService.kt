@@ -77,6 +77,9 @@ interface ApiService {
         @Field("id_gedung") idGedung : Int
     ) : Call<Ruangan>
 
+    @PUT("api/ruangan/")
+    fun updateRuangan(@Body data : DataRuangan) : Call<Ruangan>
+
     //delete data ruangan
     @FormUrlEncoded
     @HTTP(method = "DELETE", path = "api/ruangan/{id}", hasBody = true)

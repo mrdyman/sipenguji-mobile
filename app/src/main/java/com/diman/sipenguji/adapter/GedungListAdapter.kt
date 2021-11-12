@@ -54,8 +54,8 @@ class GedungListAdapter (val gedung : MutableList<DataItem>, val fragmentManager
 
         holder.btnEdit.setOnClickListener {
             //button edit clicked
-            val a = EditGedungFragment(_gedung.id!!.toInt())
-            a.show(fragmentManager, "")
+            val editGedung = EditGedungFragment(_gedung.id!!.toInt())
+            editGedung.show(fragmentManager, "")
         }
 
         holder.btnDelete.setOnClickListener {

@@ -13,14 +13,11 @@ data class Ruangan(
 
 data class DataRuangan(
 
-	@field:SerializedName("jadwal")
-	val jadwal: String? = null,
-
 	@field:SerializedName("jumlah_peserta")
 	var jumlahPeserta: String? = null,
 
-	@field:SerializedName("nomor_peserta")
-	val nomorPeserta: String? = null,
+	@field:SerializedName("jenis_ujian")
+	var jenisUjian: String? = null,
 
 	@field:SerializedName("id_gedung")
 	var idGedung: String? = null,
@@ -33,9 +30,6 @@ data class DataRuangan(
 
 	@field:SerializedName("nama_ruangan")
 	var namaRuangan: String? = null,
-
-	@field:SerializedName("gambar")
-	val gambar: String? = null,
 
 	@field:SerializedName("nama_gedung")
 	val namaGedung: String? = null,

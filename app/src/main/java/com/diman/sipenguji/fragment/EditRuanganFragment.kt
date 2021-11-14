@@ -63,6 +63,7 @@ class EditRuanganFragment (val idRuangan: Int) : BottomSheetDialogFragment() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data!![0]
                     et_nama_ruangan_edit.text = Editable.Factory.getInstance().newEditable(data?.namaRuangan)
+                    et_jenis_ujian_edit.text = Editable.Factory.getInstance().newEditable(data?.jenisUjian)
                     tv_alamatRuangan_edit.text = Editable.Factory.getInstance().newEditable(data?.namaGedung)
                     et_jumlah_peserta_edit.text = Editable.Factory.getInstance().newEditable(data?.jumlahPeserta)
                     et_latitude_edit.text = Editable.Factory.getInstance().newEditable(data?.latitude)
@@ -114,6 +115,7 @@ class EditRuanganFragment (val idRuangan: Int) : BottomSheetDialogFragment() {
 
     private fun updateDataRuangan() {
         val namaRuangan = et_nama_ruangan_edit.text.toString().trim()
+        val jenisUjian = et_jenis_ujian_edit.text.toString().trim()
         val jumlahPeserta = et_jumlah_peserta_edit.text.toString().trim()
         val latitude = et_latitude_edit.text.toString().trim()
         val longitude = et_longitude_edit.text.toString().trim()
@@ -122,6 +124,7 @@ class EditRuanganFragment (val idRuangan: Int) : BottomSheetDialogFragment() {
         val data = DataRuangan()
         data.id = idRuangan.toString()
         data.namaRuangan = namaRuangan
+        data.jenisUjian = jenisUjian
         data.jumlahPeserta = jumlahPeserta
         data.latitude = latitude
         data.longitude = longitude

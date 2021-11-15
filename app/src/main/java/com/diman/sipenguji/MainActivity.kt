@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.diman.sipenguji.fragment.*
+import com.diman.sipenguji.util.SharedPreferences
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.facebook.stetho.Stetho
 import com.google.android.gms.location.*
@@ -90,6 +91,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getUserLocation() {
+        // create sharedPreferences instantiate
+        val sharePref = SharedPreferences(this)
+
         //request lokasi user
         val locationRequest = LocationRequest.create().apply {
             interval = 5000
@@ -118,6 +122,10 @@ class MainActivity : AppCompatActivity() {
                 if (location != null){
                     userLatitude = location.latitude
                     userLongitude = location.longitude
+
+                    //update share preference current location
+                    sharePref.userCurrentLat = userLatitude.toString()
+                    sharePref.userCurrentLng = userLongitude.toString()
                 } else {
                     Log.d("UserLocation", "Failed to get user location")
                 }

@@ -220,13 +220,4 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_get_routes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="GET ROUTES"
-        android:fontFamily="@font/helveticaroundedbold"
-        android:backgroundTint="@color/orange"/>
-
 </RelativeLayout>

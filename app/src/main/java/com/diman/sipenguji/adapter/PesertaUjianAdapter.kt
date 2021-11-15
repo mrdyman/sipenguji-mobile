@@ -59,12 +59,6 @@ class PesertaUjianAdapter (val pesertaList : MutableList<DataPeserta>, val fragm
         holder.nisn.text = _pesertaList.nisn
         holder.nik.text = _pesertaList.nik
         holder.nomorPeserta.text = _pesertaList.nomorPeserta
-
-        holder.rvPeserta.setOnClickListener {
-            val activity = holder.itemView.context
-            val nisn = _pesertaList.nisn
-            showDetailPeserta(activity, nisn)
-        }
     }
 
     override fun getItemCount(): Int {
@@ -77,17 +71,10 @@ class PesertaUjianAdapter (val pesertaList : MutableList<DataPeserta>, val fragm
         val nisn = itemView.tv_nisn_peserta
         val nik = itemView.tv_nik_peserta
         val nomorPeserta = itemView.tv_nomor_peserta
-        val rvPeserta = itemView.cv_peserta
     }
 
     fun addDataPesertaList(newDataPeserta : DataPeserta){
         pesertaList.add(newDataPeserta)
         notifyItemInserted(pesertaList.lastIndex)
-    }
-
-    fun showDetailPeserta(context: Context, nisn: String?){
-        val i = Intent(context, DetailRuanganActivity::class.java)
-        i.putExtra("id_ruangan", nisn)
-        context.startActivity(i)
     }
 }

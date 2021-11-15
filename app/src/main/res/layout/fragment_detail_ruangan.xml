@@ -207,18 +207,13 @@
         android:layout_height="1dp"
         android:src="@drawable/shape_oval" />
 
-
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:scrollbars="none"-->
-<!--        android:layout_below="@+id/lines">-->
-
         <LinearLayout
+            android:orientation="vertical"
             android:layout_below="@id/lines"
             android:id="@+id/ll_data_peserta_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_peserta"
@@ -235,5 +230,16 @@
                 android:src="@drawable/img_not_found_robot"/>
 
         </LinearLayout>
-<!--    </ScrollView>-->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_get_rute_detail_ruangan"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DAPATKAN RUTE"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/neosans"
+        android:textSize="16sp"
+        android:layout_marginBottom="-6dp"/>
+
 </RelativeLayout>

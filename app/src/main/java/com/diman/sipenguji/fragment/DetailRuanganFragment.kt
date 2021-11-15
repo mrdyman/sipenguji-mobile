@@ -1,5 +1,6 @@
 package com.diman.sipenguji.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,11 +10,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
+import com.diman.sipenguji.RuteTerpendekActivity
 import com.diman.sipenguji.adapter.PesertaUjianAdapter
 import com.diman.sipenguji.adapter.RuanganListAdapter
 import com.diman.sipenguji.model.*
 import com.diman.sipenguji.network.ApiConfig
+import com.diman.sipenguji.util.SharedPreferences
 import kotlinx.android.synthetic.main.fragment_detail_gedung.*
 import kotlinx.android.synthetic.main.fragment_detail_ruangan.*
 import kotlinx.android.synthetic.main.fragment_detail_ruangan.iv_image_gedung
@@ -25,6 +29,8 @@ class DetailRuanganFragment() : Fragment() {
 
     private lateinit var pesertaUjianAdapter: PesertaUjianAdapter
     private var idRuangan : Int? = null
+    private var latitude : Double? = 0.0
+    private var longitude : Double? = 0.0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -46,6 +52,23 @@ class DetailRuanganFragment() : Fragment() {
         btn_detail_ruangan_back.setOnClickListener {
             activity?.finish()
         }
+
+        btn_get_rute_detail_ruangan.setOnClickListener {
+            val sharePref = SharedPreferences(requireContext())
+            val sourceLat = sharePref.userCurrentLat
+            val sourceLng = sharePref.userCurrentLng
+            val destinationLat = latitude
+            val destinationLng = longitude
+            val idTujuan = idRuangan
+
+            val i = Intent(requireActivity(), RuteTerpendekActivity::class.java)
+            i.putExtra("id_tujuan", idTujuan)
+            i.putExtra("source_latitude", sourceLat)
+            i.putExtra("source_longitude", sourceLng)
+            i.putExtra("destination_latitude", destinationLat!!.toString())
+            i.putExtra("destination_longitude", destinationLng!!.toString())
+            startActivity(i)
+        }
     }
 
     private fun displayDataRuangan() {
@@ -62,6 +85,10 @@ class DetailRuanganFragment() : Fragment() {
                     val kelompokUjian = data?.jenisUjian
                     val jumlahPeserta = data?.jumlahPeserta
                     val alamat = data?.namaGedung
+
+                    //assign variable latitude dan longitude
+                    latitude = data?.latitude?.toDouble()
+                    longitude = data?.longitude?.toDouble()
 
                     Glide.with(activity!!.baseContext)
                         .load("https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")

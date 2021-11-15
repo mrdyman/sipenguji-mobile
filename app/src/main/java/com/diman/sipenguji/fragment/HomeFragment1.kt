@@ -148,7 +148,7 @@ class HomeFragment1 : Fragment() {
     private fun displayProfile(){
         val sharePreference = SharedPreferences(requireActivity())
         val signature = sharePreference.userSignature
-        val client = ApiConfig.getApiService().getUser("signature!!")
+        val client = ApiConfig.getApiService().getUser("admin-signature")
         client.enqueue(object : Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if(response.isSuccessful){
@@ -160,7 +160,7 @@ class HomeFragment1 : Fragment() {
                     Glide.with(activity!!.baseContext)
                         .load("https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
                         .apply(RequestOptions().centerCrop().placeholder(R.drawable.banner_img))
-                        .into(iv_image_gedung)
+                        .into(iv_dashboard_profile)
                 } else {
                     Log.d("Response", "Connecting to API get Logged In User Unsuccessful with message ${response.message()}")
                 }

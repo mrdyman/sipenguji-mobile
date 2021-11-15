@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.diman.sipenguji.R
 import com.diman.sipenguji.adapter.HistoryLayoutAdapter
@@ -15,6 +16,7 @@ class HistoryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.purple)
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 

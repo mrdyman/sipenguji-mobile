@@ -47,6 +47,8 @@ class BarcodeScannerFragment : Fragment() {
 
         checkCameraPermission()
 
+        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_barcode_scanner, container, false)
     }

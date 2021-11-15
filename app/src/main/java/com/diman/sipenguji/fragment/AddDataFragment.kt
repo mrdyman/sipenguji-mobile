@@ -58,6 +58,7 @@ class AddDataFragment : Fragment(), UploadRequestBody.UploadCallback {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
         return inflater.inflate(R.layout.fragment_add_data, container, false)
     }
 
@@ -193,7 +194,7 @@ class AddDataFragment : Fragment(), UploadRequestBody.UploadCallback {
             }
 
             override fun onFailure(call: Call<Gedung>, t: Throwable) {
-                add_data_root.snackbar(t.message.toString())
+                Log.d("Response", "Failed to connected to API list Alamat wiht message ${t.message}")
             }
 
         })

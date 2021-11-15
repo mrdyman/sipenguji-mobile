@@ -10,7 +10,9 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.diman.sipenguji.model.Auth
+import com.diman.sipenguji.model.User
 import com.diman.sipenguji.network.ApiConfig
+import com.diman.sipenguji.util.SharedPreferences
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.help_dialog.view.*
 import kotlinx.android.synthetic.main.login_dialog_400.view.*
@@ -42,14 +44,14 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "password tidak boleh kosong", Toast.LENGTH_LONG).show()
             } else {
                 val client = ApiConfig.getApiService().login(username, password)
-                client.enqueue(object : Callback<Auth>{
-                    override fun onResponse(call: Call<Auth>, response: Response<Auth>) {
+                client.enqueue(object : Callback<User>{
+                    override fun onResponse(call: Call<User>, response: Response<User>) {
                         if (response.isSuccessful) {
                             val data = response.body()
                             Log.d("Response", "$data")
                             val message = data?.message
                             val status = data?.status
-                            val role = data?.role
+                            val role = data?.data?.role
                             if (status == true) {
                                 if (role.toString().toInt() == 0) {
                                     //user = admin
@@ -78,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
 
-                    override fun onFailure(call: Call<Auth>, t: Throwable) {
+                    override fun onFailure(call: Call<User>, t: Throwable) {
                         Log.d("Response", "Failed connect to API Auth with message : ${t.printStackTrace()}")
                     }
 
@@ -139,11 +141,13 @@ class LoginActivity : AppCompatActivity() {
         //buka mainActivity (halaman admin)
         val i = Intent(this, MainActivity::class.java)
         startActivity(i)
+        this.finish()
     }
 
     private fun openMahasiswaPage(){
         //buka scanActivity(halaman mahasiswa)
         val i = Intent(this, ScanActivity::class.java)
         startActivity(i)
+        this.finish()
     }
 }

@@ -1,7 +1,10 @@
 package com.diman.sipenguji
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
@@ -29,6 +32,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.common.util.concurrent.ListenableFuture
 import kotlinx.android.synthetic.main.activity_scan.*
 import kotlinx.android.synthetic.main.bottom_sheet_scan.*
+import kotlinx.android.synthetic.main.dialog_failed.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -203,6 +207,24 @@ class ScanActivity : AppCompatActivity() {
             }
 
         })
+
+        iv_help.setOnClickListener {
+            showHelpDialog()
+        }
+    }
+
+    private fun showHelpDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setView(R.layout.dialog_failed)
+
+        val dialog: AlertDialog = builder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+        dialog.show()
+
+        dialog.btn_close_dialog_failed.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 
     private fun getRuangan(namaRuangan : String){

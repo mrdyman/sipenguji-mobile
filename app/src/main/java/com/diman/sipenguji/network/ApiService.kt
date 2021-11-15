@@ -110,15 +110,15 @@ interface ApiService {
     @GET("api/banner")
     fun getListBanner() : Call<Banner>
 
-    //Authentication
+    //Authentication User
 
     //login
     @FormUrlEncoded
-    @POST("api/auth/login")
+    @POST("api/user/login")
     fun login(
         @Field("username") username : String,
         @Field("password") password : String,
-    ) : Call<Auth>
+    ) : Call<User>
 
     //get data logged user
     @GET("api/user")

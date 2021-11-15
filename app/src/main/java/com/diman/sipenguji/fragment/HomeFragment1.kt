@@ -7,16 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.diman.sipenguji.MainActivity
 import com.diman.sipenguji.R
 import com.diman.sipenguji.adapter.GedungAdapter
 import com.diman.sipenguji.adapter.RuanganAdapter
 import com.diman.sipenguji.adapter.RuanganAdminAdapter
-import com.diman.sipenguji.model.DataItem
-import com.diman.sipenguji.model.DataRuangan
-import com.diman.sipenguji.model.Gedung
-import com.diman.sipenguji.model.Ruangan
+import com.diman.sipenguji.model.*
 import com.diman.sipenguji.network.ApiConfig
+import com.diman.sipenguji.util.SharedPreferences
+import kotlinx.android.synthetic.main.fragment_detail_ruangan.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home1.*
 import kotlinx.android.synthetic.main.fragment_home1.rv_gedung
@@ -52,6 +53,7 @@ class HomeFragment1 : Fragment() {
 
         getGedung()
         getRuangan()
+        displayProfile()
     }
 
     private fun getGedung() {
@@ -141,5 +143,33 @@ class HomeFragment1 : Fragment() {
             val activity = (activity as MainActivity)
             activity.replaceFragment(HomeRuanganFragment())
         }
+    }
+
+    private fun displayProfile(){
+        val sharePreference = SharedPreferences(requireActivity())
+        val signature = sharePreference.userSignature
+        val client = ApiConfig.getApiService().getUser("signature!!")
+        client.enqueue(object : Callback<User>{
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                if(response.isSuccessful){
+                    Log.d("Response", "Connected To API get Logged In User")
+                    val data = response.body()?.data
+
+                    val profile = data?.image
+
+                    Glide.with(activity!!.baseContext)
+                        .load("https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
+                        .apply(RequestOptions().centerCrop().placeholder(R.drawable.banner_img))
+                        .into(iv_image_gedung)
+                } else {
+                    Log.d("Response", "Connecting to API get Logged In User Unsuccessful with message ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Log.d("Response", "Failed to connect API get Logged In User with message ${t.message}")
+            }
+
+        })
     }
 }

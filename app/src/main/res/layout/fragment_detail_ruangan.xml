@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/banner_img" />
+            android:src="@drawable/img" />
 
     </LinearLayout>
 
@@ -55,7 +55,8 @@
                 android:id="@+id/iv_logo_gedung"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/banner_img" />
+                android:scaleType="fitXY"
+                android:src="@drawable/img" />
 
         </androidx.cardview.widget.CardView>
 
@@ -71,15 +72,16 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_nama_gedung"
+            android:id="@+id/tv_nama_ruangan_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NAMA RUANGAN"
-            android:fontFamily="@font/helveticaroundedbold"
+            android:fontFamily="@font/neosans"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -92,32 +94,52 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jadwal"
-                    android:fontFamily="@font/helvetica"/>
+                    android:text="Kelompok Ujian"
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hari/Tgl"
-                    android:fontFamily="@font/helvetica"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jam"
-                    android:fontFamily="@font/helvetica"/>
+                    android:text="Alamat"
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jumlah Peserta"
-                    android:fontFamily="@font/helvetica"/>
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nomor Peserta"
-                    android:fontFamily="@font/helvetica"/>
+                    android:text=":"
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
 
             </LinearLayout>
 
@@ -128,38 +150,28 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_kelompok_ujian_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=":"
-                    android:fontFamily="@font/helvetica"/>
+                    android:text="SAINTEK"
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
 
                 <TextView
-                    android:id="@+id/tv_hari_tgl"
+                    android:id="@+id/tv_alamatRuangan_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rabu, 14/Juli/2021"
-                    android:fontFamily="@font/helvetica"/>
+                    android:text="Fakultas Teknik"
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
 
                 <TextView
-                    android:id="@+id/tv_jam"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="07.30 : 10.00"
-                    android:fontFamily="@font/helvetica"/>
-
-                <TextView
-                    android:id="@+id/tv_jumlah_peserta"
+                    android:id="@+id/tv_jumlah_peserta_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10 Orang"
-                    android:fontFamily="@font/helvetica"/>
-
-                <TextView
-                    android:id="@+id/tv_nomor_peserta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="121132132 - 1231331321"
-                    android:fontFamily="@font/helvetica"/>
+                    android:textColor="#D5000000"
+                    android:fontFamily="@font/neosans"/>
 
             </LinearLayout>
 
@@ -181,10 +193,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/line"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="DATA PESERTA UJIAN"
         android:textStyle="bold"
-        android:fontFamily="@font/helveticabold"
+        android:fontFamily="@font/neosans"
         android:textColor="@color/black"/>
 
     <ImageView
@@ -195,16 +208,17 @@
         android:src="@drawable/shape_oval" />
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:layout_below="@+id/lines">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scrollbars="none"-->
+<!--        android:layout_below="@+id/lines">-->
 
         <LinearLayout
-            android:id="@+id/ll_data_ruangan_container"
+            android:layout_below="@id/lines"
+            android:id="@+id/ll_data_peserta_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_peserta"
@@ -212,6 +226,14 @@
                 android:layout_height="match_parent"
                 tools:listitem="@layout/item_peserta"/>
 
+            <ImageView
+                android:id="@+id/iv_pesertaUjian_not_found"
+                android:visibility="gone"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/img_not_found_robot"/>
+
         </LinearLayout>
-    </ScrollView>
+<!--    </ScrollView>-->
 </RelativeLayout>

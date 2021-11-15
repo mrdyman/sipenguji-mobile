@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ll_data_ruangan_container"
+    android:id="@+id/ll_data_peserta_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -26,7 +26,7 @@
                     app:cardCornerRadius="15dp">
 
                     <ImageView
-                        android:id="@+id/iv_foto_ruangan"
+                        android:id="@+id/iv_foto_peserta"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
@@ -44,9 +44,11 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_namaPeserta"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/helveticaroundedbold"
+                    android:fontFamily="@font/neosans"
                     android:gravity="center"
                     android:text="NAMA PESERTA"
                     android:textColor="@color/black"
@@ -64,20 +66,52 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/helvetica"
+                            android:fontFamily="@font/neosans"
+                            android:textColor="#D5000000"
                             android:text="NISN" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/helvetica"
+                            android:fontFamily="@font/neosans"
+                            android:textColor="#D5000000"
                             android:text="NIK" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/helvetica"
+                            android:fontFamily="@font/neosans"
+                            android:textColor="#D5000000"
                             android:text="Nomor Peserta" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":"
+                            android:textColor="#D5000000"
+                            android:fontFamily="@font/neosans"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":"
+                            android:textColor="#D5000000"
+                            android:fontFamily="@font/neosans"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":"
+                            android:textColor="#D5000000"
+                            android:fontFamily="@font/neosans"/>
 
                     </LinearLayout>
 
@@ -88,22 +122,28 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tv_nisn_peserta"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/helvetica"
+                            android:fontFamily="@font/neosans"
+                            android:textColor="#D5000000"
                             android:text="9983183310" />
 
                         <TextView
+                            android:id="@+id/tv_nik_peserta"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/helvetica"
+                            android:fontFamily="@font/neosans"
+                            android:textColor="#D5000000"
                             android:text="7201022606980004" />
 
                         <TextView
+                            android:id="@+id/tv_nomor_peserta"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/helvetica"
-                            android:text="12546584654222224" />
+                            android:fontFamily="@font/neosans"
+                            android:textColor="#D5000000"
+                            android:text="1254658465422222" />
 
                     </LinearLayout>
 

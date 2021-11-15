@@ -119,4 +119,14 @@ interface ApiService {
         @Field("username") username : String,
         @Field("password") password : String,
     ) : Call<Auth>
+
+    //get data logged user
+    @GET("api/user")
+    fun getUser(@Query ("signature") signature : String) : Call<User>
+
+    //Peserta Ujian
+
+    //get Data Peserta Ujian by ruangan id
+    @GET("api/peserta")
+    fun getPeserta(@Query("id_ruangan") id: Int) : Call <Peserta>
 }

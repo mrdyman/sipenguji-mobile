@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/btn_close_dialog_failed"
+        android:id="@+id/btn_close_dialog_help_scan"
         android:elevation="15dp"
         android:layout_width="50dp"
         android:layout_height="50dp"

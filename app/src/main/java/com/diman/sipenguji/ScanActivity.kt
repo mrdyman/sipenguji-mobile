@@ -12,6 +12,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.util.Size
+import android.view.View
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
@@ -33,6 +34,7 @@ import com.google.common.util.concurrent.ListenableFuture
 import kotlinx.android.synthetic.main.activity_scan.*
 import kotlinx.android.synthetic.main.bottom_sheet_scan.*
 import kotlinx.android.synthetic.main.dialog_failed.*
+import kotlinx.android.synthetic.main.dialog_help.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -196,9 +198,11 @@ class ScanActivity : AppCompatActivity() {
                 if (et_namaRuangan.text.toString().trim().isNotBlank()){
                     getRuangan(s.toString())
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                    list_tips_scan.visibility = View.GONE
                 } else {
                     //clear data pada recyclerView
                     ruanganAdapter.clearDataRuangan()
+                    list_tips_scan.visibility = View.VISIBLE
                 }
             }
 
@@ -215,14 +219,14 @@ class ScanActivity : AppCompatActivity() {
 
     private fun showHelpDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setView(R.layout.dialog_failed)
+        builder.setView(R.layout.dialog_help)
 
         val dialog: AlertDialog = builder.create()
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setCancelable(false)
         dialog.show()
 
-        dialog.btn_close_dialog_failed.setOnClickListener {
+        dialog.btn_close_dialog_help_scan.setOnClickListener {
             dialog.dismiss()
         }
     }

@@ -48,11 +48,12 @@
             android:layout_toEndOf="@id/cv_profile_pict"
             android:fontFamily="@font/neosans"
             android:gravity="center_vertical"
-            android:text="Andi Mardiman Saputra"
+            android:text="Admin"
             android:textColor="#D5000000"
             android:textSize="16sp" />
 
         <TextView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_profile_fullName"
@@ -72,6 +73,7 @@
     </RelativeLayout>
 
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
@@ -82,6 +84,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="55dp">

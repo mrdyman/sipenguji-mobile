@@ -25,7 +25,12 @@
         <activity android:name=".GalleryActivity" />
         <activity android:name=".ScanActivity" />
         <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".DetailRuanganActivity" />
         <activity android:name=".DetailGedungActivity" />
@@ -44,12 +49,7 @@
         <activity android:name=".RuteTerpendekActivity" />
         <activity android:name=".MainActivity">
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
 
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
         </activity>
 
         <provider

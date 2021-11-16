@@ -51,6 +51,16 @@
 
                 </ir.sohreco.circularpulsingbutton.CircularPulsingButton>
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_logout_mahasiswa"
+                    android:layout_width="29dp"
+                    android:layout_height="40dp"
+                    app:cornerRadius="45dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:icon="@drawable/ic_power"
+                    android:layout_alignParentEnd="true"/>
+
 
             </RelativeLayout>
 

@@ -30,6 +30,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun viewListener() {
+        val sharePref = SharedPreferences(this)
+        val isLogin = sharePref.isLogin
+        val role = sharePref.userRole
+        if (isLogin){
+            if (role == 1){
+                openMahasiswaPage()
+            } else {
+                openAdminPage()
+            }
+        }
         login()
         help()
     }
@@ -52,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
                             val message = data?.message
                             val status = data?.status
                             val role = data?.data?.role
+                            val signature = data?.data?.signature
                             if (status == true) {
                                 if (role.toString().toInt() == 0) {
                                     //user = admin
@@ -63,6 +74,13 @@ class LoginActivity : AppCompatActivity() {
                                     //user tidak diketahui
                                     Log.d("Response", "Failed to login user not found : $message")
                                 }
+
+                                //simpan data user ke share preference
+                                val sharePref = SharedPreferences(this@LoginActivity)
+                                sharePref.isLogin = true
+                                sharePref.userSignature = signature
+                                sharePref.userRole = role!!.toInt()
+
                             } else {
                                 Log.d("Response", "Failed to login with message : $message")
                             }

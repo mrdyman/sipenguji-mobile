@@ -23,10 +23,12 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tv_logout.setOnClickListener {
+        btn_logout.setOnClickListener {
             //reset login data
             val sharePref = SharedPreferences(requireContext())
+            sharePref.isLogin = false
             sharePref.userSignature = ""
+            sharePref.userRole = 10
             val i = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(i)
             activity?.finish()

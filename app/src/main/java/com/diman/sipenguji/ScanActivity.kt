@@ -2,6 +2,7 @@ package com.diman.sipenguji
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -28,6 +29,7 @@ import com.diman.sipenguji.model.DataRuangan
 import com.diman.sipenguji.model.Ruangan
 import com.diman.sipenguji.network.ApiConfig
 import com.diman.sipenguji.util.ImageAnalyzer
+import com.diman.sipenguji.util.SharedPreferences
 import com.google.android.gms.location.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.common.util.concurrent.ListenableFuture
@@ -214,6 +216,17 @@ class ScanActivity : AppCompatActivity() {
 
         iv_help.setOnClickListener {
             showHelpDialog()
+        }
+
+        btn_logout_mahasiswa.setOnClickListener {
+            //reset login data
+            val sharePref = SharedPreferences(this)
+            sharePref.isLogin = false
+            sharePref.userSignature = ""
+            sharePref.userRole = 10
+            val i = Intent(this, LoginActivity::class.java)
+            startActivity(i)
+            this.finish()
         }
     }
 

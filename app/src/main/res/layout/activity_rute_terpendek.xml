@@ -37,7 +37,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:backgroundTint="@color/orange"
-            android:text="Harap sesuaikan kendaraan yang digunakan!"
+            android:text="Pastikan koneksi internet kamu stabil ya!"
             android:textAlignment="center"
             android:fontFamily="@font/helvetica"
             android:paddingTop="4dp"
@@ -51,7 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
-            android:fontFamily="@font/helveticaroundedbold"
+            app:cornerRadius="10dp"
+            android:fontFamily="@font/neosans"
             android:text="Buka Navigasi"/>
 
     </LinearLayout>

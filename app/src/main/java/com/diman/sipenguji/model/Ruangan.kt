@@ -16,9 +16,6 @@ data class DataRuangan(
 	@field:SerializedName("jumlah_peserta")
 	var jumlahPeserta: String? = null,
 
-	@field:SerializedName("jenis_ujian")
-	var jenisUjian: String? = null,
-
 	@field:SerializedName("id_gedung")
 	var idGedung: String? = null,
 

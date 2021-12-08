@@ -49,7 +49,6 @@ class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>, val fragme
         val _ruanganList = ruanganList[position]
 
         holder.namaRuangan.text = _ruanganList.namaRuangan
-        holder.jenisUjian.text = _ruanganList.jenisUjian
         holder.jumlahPeserta.text = _ruanganList.jumlahPeserta
         holder.alamatRuangan.text = _ruanganList.namaGedung
 
@@ -77,7 +76,6 @@ class RuanganListAdapter (val ruanganList : MutableList<DataRuangan>, val fragme
 
     class RuanganListHolder (itemView : View): RecyclerView.ViewHolder(itemView) {
         val namaRuangan = itemView.tv_namaruangan_home_list
-        val jenisUjian = itemView.tv_kelompok_ujian
         val jumlahPeserta = itemView.tv_jumlah_peserta_home_list
         val alamatRuangan = itemView.tv_alamat_ruangan_list
         val rvRuangan = itemView.cv_item_ruangan_list

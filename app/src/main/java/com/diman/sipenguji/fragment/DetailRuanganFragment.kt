@@ -82,7 +82,6 @@ class DetailRuanganFragment() : Fragment() {
                     val data = response.body()?.data!![0]
 
                     val namaRuangan = data?.namaRuangan
-                    val kelompokUjian = data?.jenisUjian
                     val jumlahPeserta = data?.jumlahPeserta
                     val alamat = data?.namaGedung
 
@@ -96,7 +95,6 @@ class DetailRuanganFragment() : Fragment() {
                         .into(iv_image_gedung)
 
                     tv_nama_ruangan_detail.text = namaRuangan
-                    tv_kelompok_ujian_detail.text = kelompokUjian
                     tv_jumlah_peserta_detail.text = jumlahPeserta
                     tv_alamatRuangan_detail.text = alamat
                 } else {

@@ -29,6 +29,7 @@ class DetailRuanganFragment() : Fragment() {
 
     private lateinit var pesertaUjianAdapter: PesertaUjianAdapter
     private var idRuangan : Int? = null
+    private var namaTujuan : String? = "Unknown"
     private var latitude : Double? = 0.0
     private var longitude : Double? = 0.0
 
@@ -63,6 +64,7 @@ class DetailRuanganFragment() : Fragment() {
 
             val i = Intent(requireActivity(), RuteTerpendekActivity::class.java)
             i.putExtra("id_tujuan", idTujuan.toString())
+            i.putExtra("destination_name", namaTujuan)
             i.putExtra("source_latitude", sourceLat)
             i.putExtra("source_longitude", sourceLng)
             i.putExtra("destination_latitude", destinationLat!!.toString())
@@ -84,6 +86,8 @@ class DetailRuanganFragment() : Fragment() {
                     val namaRuangan = data?.namaRuangan
                     val jumlahPeserta = data?.jumlahPeserta
                     val alamat = data?.namaGedung
+
+                    namaTujuan = namaRuangan
 
                     //assign variable latitude dan longitude
                     latitude = data?.latitude?.toDouble()

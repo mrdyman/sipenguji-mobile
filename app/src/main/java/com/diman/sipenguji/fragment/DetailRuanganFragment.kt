@@ -62,7 +62,7 @@ class DetailRuanganFragment() : Fragment() {
             val idTujuan = idRuangan
 
             val i = Intent(requireActivity(), RuteTerpendekActivity::class.java)
-            i.putExtra("id_tujuan", idTujuan)
+            i.putExtra("id_tujuan", idTujuan.toString())
             i.putExtra("source_latitude", sourceLat)
             i.putExtra("source_longitude", sourceLng)
             i.putExtra("destination_latitude", destinationLat!!.toString())

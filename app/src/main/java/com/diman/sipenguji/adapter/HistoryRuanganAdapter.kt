@@ -42,7 +42,6 @@ class HistoryRuanganAdapter (val historyRuangan : MutableList<DataRuangan>) : Re
         val  _historyRuangan = historyRuangan[position]
 
         holder.namaRuangan.text = _historyRuangan.namaRuangan
-        holder.jenisUjian.text = _historyRuangan.jenisUjian
         holder.jumlahPeserta.text = _historyRuangan.jumlahPeserta
         holder.alamatRuangan.text = _historyRuangan.namaGedung
         holder.rvHistoryRuangan.setOnClickListener {
@@ -63,7 +62,6 @@ class HistoryRuanganAdapter (val historyRuangan : MutableList<DataRuangan>) : Re
     class HistoryRuanganHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
         var rvHistoryRuangan = itemView.cv_item_ruangan_list
         var namaRuangan = itemView.tv_namaruangan_home_list
-        val jenisUjian = itemView.tv_kelompok_ujian
         var jumlahPeserta = itemView.tv_jumlah_peserta_home_list
         val alamatRuangan = itemView.tv_alamat_ruangan_list
         var btnEdit = itemView.btn_home_ruangan_edit

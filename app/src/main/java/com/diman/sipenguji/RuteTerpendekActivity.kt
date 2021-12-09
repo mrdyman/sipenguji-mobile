@@ -131,7 +131,7 @@ class RuteTerpendekActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Calculate>, t: Throwable) {
-                Log.e("Response", "Failed to get decoded data from API with message: ${t.printStackTrace()}")
+                Log.e("Response", "Failed to get decoded data from API with message: ${t.message}")
             }
         })
         // request direction sekali lagi dari lokasi user -> gedung

@@ -54,8 +54,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         //add marker at start and end of polyline
         val origin = dataPolyline[0]
         val destination = dataPolyline[dataPolyline.size - 1]
-        gMap.addMarker(MarkerOptions().position(origin).title("Your Location").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)))
-        gMap.addMarker(MarkerOptions().position(destination).title("Your Destination"))
+        gMap.addMarker(MarkerOptions().position(origin).title("Your Location"))
+        gMap.addMarker(MarkerOptions().position(destination).title("Your Destination").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)))
 
         //zoom camera maps to destination
         gMap.moveCamera(CameraUpdateFactory.newLatLng(destination))

@@ -44,7 +44,8 @@ class GambarAdapter (val gambar : MutableList<DataGambar>) : RecyclerView.Adapte
         Log.d("img", _gambar.nama.toString())
 
         Glide.with(holder.itemView.context)
-            .load("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")
+//            .load("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")
+            .load(_gambar.nama)
             .apply(RequestOptions().centerCrop().placeholder(R.drawable.banner_img))
             .into(holder.ivGambarRuangan)
 

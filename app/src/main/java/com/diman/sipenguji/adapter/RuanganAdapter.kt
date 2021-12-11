@@ -29,6 +29,7 @@ class RuanganAdapter(val ruangan: MutableList<DataRuangan>) :
         val _ruangan = ruangan[position]
 
         holder.namaRuangan.text = _ruangan.namaRuangan
+        holder.alamatRuangan.text = _ruangan.namaGedung
 
         Glide.with(holder.itemView.context)
             .load("https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
@@ -53,6 +54,7 @@ class RuanganAdapter(val ruangan: MutableList<DataRuangan>) :
         val gambarRuangan = itemView.iv_ruangan_ujian
         val rvRuangan = itemView.cv_ruangan_ujian
         val namaRuangan = itemView.nama_ruangan_ujian
+        val alamatRuangan = itemView.jadwal_ujian
     }
 
     fun addDataRuangan(newDataRuangan: DataRuangan) {

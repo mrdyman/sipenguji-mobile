@@ -107,7 +107,7 @@ class BarcodeScanResultFragment2 : BottomSheetDialogFragment() {
                             val lat = (activity as ScanActivity).userLatitude
                             val lng = (activity as ScanActivity).userLongitude
                             Log.d("Loc", lat.toString())
-                            i.putExtra("id_tujuan", id)
+                            i.putExtra("id_tujuan", id.toString())
                             i.putExtra("source_latitude", lat.toString())
                             i.putExtra("source_longitude", lng.toString())
                             i.putExtra("destination_latitude", latitude)

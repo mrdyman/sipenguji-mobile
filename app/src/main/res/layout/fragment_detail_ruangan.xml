@@ -91,12 +91,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kelompok Ujian"
-                    android:textColor="#D5000000"
-                    android:fontFamily="@font/neosans"/>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Kelompok Ujian"-->
+<!--                    android:textColor="#D5000000"-->
+<!--                    android:fontFamily="@font/neosans"/>-->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -120,12 +120,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":"
-                    android:textColor="#D5000000"
-                    android:fontFamily="@font/neosans"/>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text=":"-->
+<!--                    android:textColor="#D5000000"-->
+<!--                    android:fontFamily="@font/neosans"/>-->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -149,13 +149,13 @@
                 android:layout_marginStart="15dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_kelompok_ujian_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SAINTEK"
-                    android:textColor="#D5000000"
-                    android:fontFamily="@font/neosans"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_kelompok_ujian_detail"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="SAINTEK"-->
+<!--                    android:textColor="#D5000000"-->
+<!--                    android:fontFamily="@font/neosans"/>-->
 
                 <TextView
                     android:id="@+id/tv_alamatRuangan_detail"

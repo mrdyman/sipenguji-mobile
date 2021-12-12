@@ -30,10 +30,11 @@ class GalleryActivity : AppCompatActivity() {
     }
 
     private fun displayImage() {
-        val i = intent.getStringExtra("gambar")
-        Log.d("diman-array", i.toString())
+        val gambar = intent.getStringExtra("gambar")
+        Log.d("diman-array", gambar.toString())
         Glide.with(this)
-            .load("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")
+//            .load("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")
+            .load(gambar)
             .apply(RequestOptions().fitCenter().placeholder(R.drawable.banner_img))
             .into(iv_detail_gambar_ruangan)
     }

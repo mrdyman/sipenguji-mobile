@@ -1,4 +1,4 @@
-# Sipenguji (Sistem Pemetaan Ruangan Ujian) Mobile App Version - Using Android Studio with Kotlin
+# SIPENGUJI (Sistem Pemetaan Ruangan Ujian) Mobile App Version - Using Android Studio with Kotlin
 
 <img src="https://user-images.githubusercontent.com/55882627/211302441-8de34b52-cdde-470c-b338-67f8a45decc1.jpg" width=25% height=25%> <img src="https://user-images.githubusercontent.com/55882627/211302452-7857d741-4a81-47ae-9b10-04d3b77ee52d.jpg" width=25% height=25%>
 <img src="https://user-images.githubusercontent.com/55882627/211302461-7512ef06-bd93-4a4f-91eb-deb3c5a0629a.jpg" width=25% height=25%>
